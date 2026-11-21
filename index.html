@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>الراقی — روحانی شفاء و رابطہ</title>
+  <meta name="theme-color" content="#065f46" />
+  <meta name="description" content="مریض اور سائل کے لیے الراقی کی محفوظ، تیز اور مفت ایپ" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" type="image/png" href="icon-192.png" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(155deg, #042f2e 0%, #064e3b 55%, #065f46 100%);
+      color: #fef3c7;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      text-align: center;
+    }
+    .splash-card {
+      max-width: 420px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.08);
+      border: 2px solid rgba(212, 175, 55, 0.8);
+      border-radius: 24px;
+      padding: 26px 20px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(8px);
+    }
+    .logo {
+      width: 112px;
+      height: 112px;
+      border-radius: 50%;
+      border: 3px solid #d4af37;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      margin-bottom: 12px;
+    }
+    h1 { margin: 4px 0 6px; font-size: 1.85rem; color: #fef08a; }
+    p { margin: 0 0 14px; font-size: 0.92rem; color: #d1fae5; line-height: 1.7; }
+    .btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #d4af37, #b45309);
+      color: #ffffff;
+      border: none;
+      border-radius: 12px;
+      padding: 11px 20px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 900;
+      cursor: pointer;
+      margin: 6px 4px;
+    }
+    .status { font-size: 0.84rem; color: #fde68a; margin-top: 10px; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <div class="splash-card" id="shifaSplash">
+    <img class="logo" src="icon-192.png" alt="الراقی" />
+    <h1>الراقی</h1>
+    <p>روحانی شفاء، منتخب وظائف اور اپنے معالج سے براہِ راست محفوظ رابطہ</p>
+    <button type="button" id="installShifaBtn" class="btn" style="display:none;">📲 موبائل میں ایپ انسٹال کریں</button>
+    <div class="status" id="shifaLoadStatus">⏳ آپ کا محفوظ پورٹل لوڈ ہو رہا ہے...</div>
+  </div>
+
+  <script>
+    (function() {
+      var API = 'https://script.google.com/macros/s/AKfycbzKlQ08MZlyKir8IvIZkqLrych04BuJYseRe2_Bb2xcDTu39qfguH4rmqFdqqc9Fkgl7g/exec';
+      var params = new URLSearchParams(window.location.search);
+      var mualij = params.get('m') || params.get('mualij') || localStorage.getItem('alraqi_patient_mualij_v1') || '';
+      if (mualij) {
+        try { localStorage.setItem('alraqi_patient_mualij_v1', mualij); } catch (e) {}
+      }
+
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js').catch(function() {});
+      }
+
+      var deferredPrompt = null;
+      var instBtn = document.getElementById('installShifaBtn');
+      window.addEventListener('beforeinstallprompt', function(e) {
+        e.preventDefault();
+        deferredPrompt = e;
+        if (instBtn) instBtn.style.display = 'inline-block';
+      });
+      if (instBtn) {
+        instBtn.addEventListener('click', function() {
+          if (!deferredPrompt) return;
+          deferredPrompt.prompt();
+          deferredPrompt.userChoice.finally(function() { deferredPrompt = null; instBtn.style.display = 'none'; });
+        });
+      }
+
+      // Dynamic Cloud Loader: fetches latest Al_Raqi_Patient_Lite.html from Google Drive automatically!
+      fetch(API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({ action: 'get_patient_lite_html_v150', mualij: mualij })
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(res) {
+        if (res && res.ok && res.html) {
+          document.open();
+          document.write(res.html);
+          document.close();
+        } else {
+          var st = document.getElementById('shifaLoadStatus');
+          if (st) st.textContent = '✨ الراقی مریض ایپ جلد مکمل فعال ہو رہی ہے — آپ اسے ابھی اوپر بٹن سے انسٹال کر سکتے ہیں!';
+        }
+      })
+      .catch(function() {
+        var st = document.getElementById('shifaLoadStatus');
+        if (st) st.textContent = '⚠️ انٹرنیٹ کنکشن چیک کریں اور دوبارہ ریفریش کریں۔';
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>الراقی | Al-Raqi — روحانی علاج، رقیہ شرعیہ و مسنون وظائف (Ruqyah Shariah)</title>
+  <meta name="theme-color" content="#065f46" />
+  <meta name="application-name" content="الراقی" />
+  <meta name="apple-mobile-web-app-title" content="الراقی" />
+  <meta name="description" content="الراقی (Al-Raqi): مستند روحانی علاج، الرقية الشرعية، مسنون وظائف، خوابوں کی رہنمائی اور معالج سے محفوظ رابطہ۔ Authentic Ruqyah Shariah, Islamic spiritual guidance &amp; Prophetic supplications." />
+  <meta name="keywords" content="الراقی, رقیہ شرعیہ, دم, وظائف, روحانی علاج, الرقية الشرعية, علاج روحاني, أذكار, Al-Raqi, Ruqyah Shariah, Islamic Spiritual Healing, Manzil, Dua, Wazaif" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="الراقی | Al-Raqi — Ruqyah Shariah &amp; Spiritual Guidance" />
+  <meta property="og:description" content="مستند روحانی علاج، الرقية الشرعية اور مسنون وظائف۔ Authentic Ruqyah Shariah &amp; Prophetic supplications." />
+  <meta property="og:image" content="./icon-512.png?v=6" />
+  <link id="dynManifest" rel="manifest" href="./manifest.json?v=6" />
+  <link rel="icon" type="image/png" href="./icon-192.png?v=6" />
+  <link rel="apple-touch-icon" href="./icon-192.png?v=6" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Al-Raqi (الراقی)",
+    "alternateName": ["الراقی", "الراقي", "Al-Raqi Shifa", "Ruqyah Shariah App"],
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Web, Android, iOS, Windows, macOS",
+    "inLanguage": ["ur", "ar", "en-GB", "en-US"],
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Authentic Ruqyah Shariah, Prophetic supplications, and direct spiritual practitioner guidance in Urdu, Arabic, UK English and US English."
+  }
+  </script>
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0; padding: 0; width: 100%; height: 100%;
+      overflow: hidden;
+      background: linear-gradient(135deg, #022c22 0%, #065f46 60%, #047857 100%);
+      color: #ffffff;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+    }
+    #splashWrap {
+      position: fixed; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      padding: 18px; text-align: center; z-index: 10;
+    }
+    .box {
+      max-width: 390px; width: 100%;
+      background: rgba(255,255,255,0.09); border: 2px solid #34d399;
+      border-radius: 22px; padding: 26px 20px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+    }
+    .box img { width: 104px; height: 104px; border-radius: 20px; background: #fff; padding: 4px; border: 3px solid #34d399; object-fit: cover; }
+    .box h1 { margin: 12px 0 6px; font-size: 1.95rem; color: #ffffff; }
+    .box p { margin: 0 0 10px; color: #a7f3d0; font-size: 0.94rem; line-height: 1.7; }
+    #appFrame {
+      position: fixed; inset: 0;
+      width: 100%; height: 100%;
+      border: none; display: none; z-index: 20;
+      background: #f0fdf4;
+    }
+    /* Immediate PWA Auto-Install Popup Modal */
+    #installBackdrop {
+      position: fixed; inset: 0;
+      background: rgba(2, 44, 34, 0.72);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      display: none; align-items: flex-end; justify-content: center;
+      padding: 16px; z-index: 99999;
+      animation: fadeInBg 0.22s ease-out;
+    }
+    @media (min-width: 540px) {
+      #installBackdrop { align-items: center; }
+    }
+    #installCard {
+      width: 100%; max-width: 410px;
+      background: #ffffff; color: #064e3b;
+      border-radius: 22px; border: 2px solid #10b981;
+      padding: 20px 18px 18px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.42);
+      text-align: center;
+      animation: slideUpCard 0.28s ease-out;
+    }
+    .inst-head {
+      display: flex; align-items: center; gap: 12px;
+      text-align: start; margin-bottom: 12px;
+    }
+    .inst-head img {
+      width: 58px; height: 58px; flex-shrink: 0;
+      border-radius: 14px; border: 2px solid #10b981;
+      background: #ffffff; padding: 2px; object-fit: cover;
+    }
+    .inst-head h2 {
+      margin: 0 0 3px; font-size: 1.15rem; color: #065f46; line-height: 1.35;
+    }
+    .inst-head p {
+      margin: 0; font-size: 0.86rem; color: #047857; line-height: 1.5;
+    }
+    #instDesc {
+      margin: 0 0 14px; font-size: 0.92rem; color: #1f2937;
+      background: #ecfdf5; border: 1px solid #a7f3d0;
+      border-radius: 12px; padding: 10px 12px; line-height: 1.65;
+      text-align: start;
+    }
+    .inst-actions {
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    #instPrimaryBtn {
+      width: 100%; border: none; border-radius: 14px;
+      background: linear-gradient(135deg, #065f46 0%, #059669 100%);
+      color: #ffffff; font-size: 1.02rem; font-weight: 700;
+      padding: 13px 16px; cursor: pointer;
+      box-shadow: 0 6px 16px rgba(5, 150, 105, 0.35);
+      font-family: inherit;
+    }
+    #instPrimaryBtn:active { transform: scale(0.98); }
+    #instLaterBtn {
+      width: 100%; border: 1px solid #d1d5db; border-radius: 12px;
+      background: #f9fafb; color: #4b5563;
+      font-size: 0.88rem; font-weight: 600;
+      padding: 9px 14px; cursor: pointer; font-family: inherit;
+    }
+    @keyframes fadeInBg { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideUpCard { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+</head>
+<body>
+  <div id="splashWrap">
+    <div class="box">
+      <img src="./icon-192.png?v=6" alt="Al-Raqi" />
+      <h1 id="spTitle">الراقی</h1>
+      <p id="spSub">روحانی علاج و رہنمائی</p>
+      <p id="st" style="font-size:0.85rem;color:#fef08a;">⏳ لوڈ ہو رہا ہے...</p>
+    </div>
+  </div>
+  <iframe id="appFrame" title="Al-Raqi" allow="microphone; autoplay; clipboard-write"></iframe>
+
+  <!-- Immediate Auto-Install Popup Modal -->
+  <div id="installBackdrop" role="dialog" aria-modal="true" aria-labelledby="instTitle">
+    <div id="installCard">
+      <div class="inst-head">
+        <img src="./icon-192.png?v=6" alt="Al-Raqi" />
+        <div>
+          <h2 id="instTitle">📲 الراقی ایپ انسٹال کریں</h2>
+          <p id="instSub">آسان رسائی کے لیے پہلے ایپ انسٹال کر لیں</p>
+        </div>
+      </div>
+      <div id="instDesc"></div>
+      <div class="inst-actions">
+        <button id="instPrimaryBtn" type="button">📲 ابھی انسٹال کریں</button>
+        <button id="instLaterBtn" type="button">بعد میں / جاری رکھیں</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      var API = 'https://script.google.com/macros/s/AKfycbzKlQ08MZlyKir8IvIZkqLrych04BuJYseRe2_Bb2xcDTu39qfguH4rmqFdqqc9Fkgl7g/exec';
+      var SPLASH_I18N = {
+        'ur': {
+          dir: 'rtl', title: 'الراقی', sub: 'روحانی علاج و رہنمائی',
+          loading: '⏳ لوڈ ہو رہا ہے...', retry: '⚠️ لوڈنگ میں تاخیر، دوبارہ ریفریش کریں۔',
+          netErr: '⚠️ انٹرنیٹ کنکشن چیک کر کے دوبارہ کوشش کریں۔',
+          installTip: 'موبائل یا کمپیوٹر میں انسٹال کرنے کے لیے براؤزر مینو (⋮) سے "Install app" منتخب کریں۔',
+          instTitle: '📲 الراقی ایپ انسٹال کریں',
+          instSub: 'فوری اور آسان استعمال کے لیے پہلے ایپ انسٹال کر لیں',
+          instNativeDesc: 'یہ ایپ آپ کے موبائل کی ہوم اسکرین پر محفوظ ہو جائے گی تاکہ آئندہ لنک ڈھونڈے بغیر ایک کلک پر کھل سکے۔',
+          instInAppDesc: 'یہ لنک واٹس ایپ / ایپ کے اندر کھلا ہے۔ انسٹال کرنے کے لیے اوپر کونے میں <b>⋮</b> (تین نقطے) دبائیں اور <b>Open in Chrome</b> منتخب کریں۔',
+          instIosDesc: 'آئی فون پر انسٹال کرنے کے لیے نیچے <b>Share (⬆️)</b> بٹن دبائیں اور پھر <b>Add to Home Screen</b> منتخب کریں۔',
+          instFallbackDesc: 'انسٹال کرنے کے لیے اوپر براؤزر مینو <b>(⋮)</b> کھولیں اور <b>Install app</b> یا <b>Add to Home screen</b> پر کلک کریں۔',
+          instBtn: '📲 ابھی انسٹال کریں',
+          instGotIt: 'ٹھیک ہے، سمجھ گیا',
+          instLater: 'بعد میں / جاری رکھیں',
+          instInstalling: '✅ ایپ انسٹال ہو رہی ہے...',
+          manifest: './manifest-ur.json?v=6'
+        },
+        'ar': {
+          dir: 'rtl', title: 'الراقي', sub: 'الرقية الشرعية والعلاج الروحاني',
+          loading: '⏳ جاري التحميل...', retry: '⚠️ تأخر في التحميل، يرجى التحديث.',
+          netErr: '⚠️ تحقق من اتصال الإنترنت وحاول مرة أخرى.',
+          installTip: 'لتثبيت التطبيق اختر "Install app" من قائمة المتصفح (⋮).',
+          instTitle: '📲 ثبّت تطبيق الراقي',
+          instSub: 'قم بتثبيت التطبيق أولاً لسهولة الوصول دائماً',
+          instNativeDesc: 'سيُحفظ التطبيق على شاشتك الرئيسية لتفتحه بنقرة واحدة دون الحاجة للبحث عن الرابط مجدداً.',
+          instInAppDesc: 'تم فتح الرابط داخل واتساب/تطبيق آخر. للتثبيت اضغط <b>⋮</b> في الأعلى واختر <b>Open in Chrome</b>.',
+          instIosDesc: 'للتثبيت على آيفون، اضغط زر <b>المشاركة (⬆️)</b> في الأسفل ثم اختر <b>Add to Home Screen</b>.',
+          instFallbackDesc: 'للتثبيت، افتح قائمة المتصفح <b>(⋮)</b> بالأعلى واختر <b>Install app</b> أو <b>Add to Home screen</b>.',
+          instBtn: '📲 تثبيت الآن',
+          instGotIt: 'حسناً، فهمت',
+          instLater: 'لاحقاً / متابعة',
+          instInstalling: '✅ جاري التثبيت...',
+          manifest: './manifest-ar.json?v=6'
+        },
+        'en-GB': {
+          dir: 'ltr', title: 'Al-Raqi', sub: 'Ruqyah Shariah & Spiritual Guidance Centre',
+          loading: '⏳ Loading...', retry: '⚠️ Loading delayed, please refresh.',
+          netErr: '⚠️ Please check your internet connection and try again.',
+          installTip: 'To install on mobile or laptop, open the browser menu (⋮) and choose "Install app".',
+          instTitle: '📲 Install Al-Raqi App',
+          instSub: 'Install first for quick one-tap access on your Home Screen',
+          instNativeDesc: 'Add Al-Raqi to your Home Screen so you can open it anytime in one tap without looking for the link again.',
+          instInAppDesc: 'This link opened inside WhatsApp/an in-app browser. Tap <b>⋮</b> at the top corner and choose <b>Open in Chrome</b> to install.',
+          instIosDesc: 'To install on iPhone/iPad, tap the <b>Share (⬆️)</b> button below and select <b>Add to Home Screen</b>.',
+          instFallbackDesc: 'To install, open your browser menu <b>(⋮)</b> at the top and choose <b>Install app</b> or <b>Add to Home screen</b>.',
+          instBtn: '📲 Install Now',
+          instGotIt: 'Got it',
+          instLater: 'Later / Continue',
+          instInstalling: '✅ Installing...',
+          manifest: './manifest-en-gb.json?v=6'
+        },
+        'en-US': {
+          dir: 'ltr', title: 'Al-Raqi', sub: 'Ruqyah Shariah & Spiritual Guidance Center',
+          loading: '⏳ Loading...', retry: '⚠️ Loading delayed, please refresh.',
+          netErr: '⚠️ Please check your internet connection and try again.',
+          installTip: 'To install on mobile or laptop, open the browser menu (⋮) and choose "Install app".',
+          instTitle: '📲 Install Al-Raqi App',
+          instSub: 'Install first for quick one-tap access on your Home Screen',
+          instNativeDesc: 'Add Al-Raqi to your Home Screen so you can open it anytime in one tap without searching for the link again.',
+          instInAppDesc: 'This link opened inside WhatsApp/an in-app browser. Tap <b>⋮</b> at the top corner and choose <b>Open in Chrome</b> to install.',
+          instIosDesc: 'To install on iPhone/iPad, tap the <b>Share (⬆️)</b> button below and select <b>Add to Home Screen</b>.',
+          instFallbackDesc: 'To install, open your browser menu <b>(⋮)</b> at the top and choose <b>Install app</b> or <b>Add to Home screen</b>.',
+          instBtn: '📲 Install Now',
+          instGotIt: 'Got it',
+          instLater: 'Later / Continue',
+          instInstalling: '✅ Installing...',
+          manifest: './manifest-en-us.json?v=6'
+        }
+      };
+
+      var ARAB_CC = ['SA','AE','QA','KW','OM','BH','EG','JO','IQ','YE','SY','LB','PS','SD','LY','TN','DZ','MA','MR','SO','DJ','KM'];
+      var UK_CC = ['GB','UK','AU','NZ','IE','ZA','SG','MY','HK','MT','CY'];
+      var US_CC = ['US','CA','PH','PR'];
+      var UR_CC = ['PK','IN'];
+
+      function mapCountryToLang(cc) {
+        cc = String(cc || '').toUpperCase().trim();
+        if (UR_CC.indexOf(cc) !== -1) return 'ur';
+        if (ARAB_CC.indexOf(cc) !== -1) return 'ar';
+        if (UK_CC.indexOf(cc) !== -1) return 'en-GB';
+        if (US_CC.indexOf(cc) !== -1) return 'en-US';
+        return 'en-GB';
+      }
+
+      function detectFastLang() {
+        try {
+          var q = new URLSearchParams(window.location.search).get('lang');
+          if (q && ['ur','ar','en-GB','en-US'].indexOf(q) !== -1) return q;
+          var saved = localStorage.getItem('ALRAQI_LANG_V1');
+          if (saved && ['ur','ar','en-GB','en-US'].indexOf(saved) !== -1) return saved;
+        } catch (e) {}
+        try {
+          var tz = (Intl.DateTimeFormat().resolvedOptions().timeZone || '').toLowerCase();
+          if (tz.indexOf('karachi') !== -1 || tz.indexOf('kolkata') !== -1) return 'ur';
+          if (tz.indexOf('riyadh') !== -1 || tz.indexOf('dubai') !== -1 || tz.indexOf('qatar') !== -1 || tz.indexOf('kuwait') !== -1 || tz.indexOf('cairo') !== -1 || tz.indexOf('amman') !== -1 || tz.indexOf('baghdad') !== -1 || tz.indexOf('muscat') !== -1 || tz.indexOf('bahrain') !== -1) return 'ar';
+          if (tz.indexOf('london') !== -1 || tz.indexOf('sydney') !== -1 || tz.indexOf('melbourne') !== -1 || tz.indexOf('auckland') !== -1 || tz.indexOf('dublin') !== -1) return 'en-GB';
+          if (tz.indexOf('america/') !== -1 || tz.indexOf('new_york') !== -1 || tz.indexOf('chicago') !== -1 || tz.indexOf('los_angeles') !== -1 || tz.indexOf('toronto') !== -1) return 'en-US';
+        } catch (e) {}
+        var nav = (navigator.language || 'ur').toLowerCase();
+        if (nav.indexOf('ar') === 0) return 'ar';
+        if (nav.indexOf('ur') === 0) return 'ur';
+        if (nav === 'en-us' || nav === 'en-ca') return 'en-US';
+        if (nav.indexOf('en') === 0) return 'en-GB';
+        return 'ur';
+      }
+
+      function detectCountryGeoAsync(cb) {
+        try {
+          if (localStorage.getItem('ALRAQI_LANG_MANUAL_V1') === '1') return;
+        } catch (e) {}
+        var done = false;
+        var timer = setTimeout(function() { done = true; }, 2200);
+        fetch('https://ipapi.co/country/', { cache: 'no-store' })
+          .then(function(r) { return r.ok ? r.text() : ''; })
+          .then(function(cc) {
+            if (done) return;
+            clearTimeout(timer);
+            cc = String(cc || '').trim();
+            if (cc.length === 2) {
+              var lang = mapCountryToLang(cc);
+              try { localStorage.setItem('ALRAQI_LANG_V1', lang); } catch (e) {}
+              cb(lang);
+            }
+          }).catch(function() {});
+      }
+
+      var activeLang = detectFastLang();
+      var deferredPrompt = null;
+      var installMode = 'fallback'; // 'native' | 'inapp' | 'ios' | 'fallback'
+
+      function isStandaloneInstalled() {
+        try {
+          if (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) return true;
+          if (window.navigator && window.navigator.standalone === true) return true;
+          if (document.referrer && document.referrer.indexOf('android-app://') === 0) return true;
+        } catch (e) {}
+        return false;
+      }
+
+      function detectEnvMode() {
+        if (deferredPrompt) return 'native';
+        var ua = navigator.userAgent || '';
+        if (/WhatsApp|FBAN|FBAV|Instagram|Line|Snapchat|Twitter|MicroMessenger/i.test(ua)) return 'inapp';
+        if (/iPhone|iPad|iPod/i.test(ua) && !/CriOS|FxiOS/i.test(ua)) return 'ios';
+        return 'fallback';
+      }
+
+      function renderInstallModalText() {
+        var t = SPLASH_I18N[activeLang] || SPLASH_I18N.ur;
+        var elTitle = document.getElementById('instTitle');
+        var elSub = document.getElementById('instSub');
+        var elDesc = document.getElementById('instDesc');
+        var elPrimary = document.getElementById('instPrimaryBtn');
+        var elLater = document.getElementById('instLaterBtn');
+        if (!elTitle) return;
+        elTitle.textContent = t.instTitle;
+        elSub.textContent = t.instSub;
+        elLater.textContent = t.instLater;
+        if (installMode === 'native') {
+          elDesc.innerHTML = t.instNativeDesc;
+          elPrimary.textContent = t.instBtn;
+          elPrimary.style.display = 'block';
+        } else if (installMode === 'inapp') {
+          elDesc.innerHTML = t.instInAppDesc;
+          elPrimary.textContent = t.instGotIt;
+          elPrimary.style.display = 'block';
+        } else if (installMode === 'ios') {
+          elDesc.innerHTML = t.instIosDesc;
+          elPrimary.textContent = t.instGotIt;
+          elPrimary.style.display = 'block';
+        } else {
+          elDesc.innerHTML = t.instFallbackDesc;
+          elPrimary.textContent = t.instGotIt;
+          elPrimary.style.display = 'block';
+        }
+      }
+
+      function showInstallPopup(forceShow) {
+        if (isStandaloneInstalled()) return;
+        try {
+          if (!forceShow && sessionStorage.getItem('ALRAQI_INSTALL_DISMISSED') === '1') return;
+        } catch (e) {}
+        installMode = detectEnvMode();
+        renderInstallModalText();
+        var bd = document.getElementById('installBackdrop');
+        if (bd) bd.style.display = 'flex';
+      }
+
+      function hideInstallPopup(markDismissed) {
+        var bd = document.getElementById('installBackdrop');
+        if (bd) bd.style.display = 'none';
+        if (markDismissed) {
+          try { sessionStorage.setItem('ALRAQI_INSTALL_DISMISSED', '1'); } catch (e) {}
+        }
+      }
+
+      function applySplashLang(lang) {
+        activeLang = SPLASH_I18N[lang] ? lang : 'ur';
+        var t = SPLASH_I18N[activeLang];
+        document.documentElement.lang = activeLang;
+        document.documentElement.dir = t.dir;
+        document.title = t.title + ' — ' + t.sub;
+        var elT = document.getElementById('spTitle');
+        var elS = document.getElementById('spSub');
+        var elSt = document.getElementById('st');
+        var mf = document.getElementById('dynManifest');
+        if (elT) elT.textContent = t.title;
+        if (elS) elS.textContent = t.sub;
+        if (elSt && elSt.textContent.indexOf('⏳') === 0) elSt.textContent = t.loading;
+        if (mf) mf.setAttribute('href', t.manifest);
+        renderInstallModalText();
+      }
+      applySplashLang(activeLang);
+      detectCountryGeoAsync(function(geoLang) {
+        applySplashLang(geoLang);
+        try {
+          var fr = document.getElementById('appFrame');
+          if (fr && fr.contentWindow) fr.contentWindow.postMessage({ type: 'ALRAQI_SET_LANG', lang: geoLang }, '*');
+        } catch (e) {}
+      });
+
+      // Wire popup buttons
+      var primaryBtn = document.getElementById('instPrimaryBtn');
+      var laterBtn = document.getElementById('instLaterBtn');
+      if (primaryBtn) {
+        primaryBtn.addEventListener('click', function() {
+          if (deferredPrompt) {
+            var t = SPLASH_I18N[activeLang] || SPLASH_I18N.ur;
+            primaryBtn.textContent = t.instInstalling;
+            primaryBtn.disabled = true;
+            deferredPrompt.prompt();
+            deferredPrompt.userChoice.then(function(choice) {
+              deferredPrompt = null;
+              primaryBtn.disabled = false;
+              if (choice && choice.outcome === 'accepted') {
+                hideInstallPopup(true);
+              } else {
+                hideInstallPopup(true);
+              }
+            }).catch(function() {
+              deferredPrompt = null;
+              primaryBtn.disabled = false;
+              hideInstallPopup(true);
+            });
+          } else {
+            hideInstallPopup(true);
+          }
+        });
+      }
+      if (laterBtn) {
+        laterBtn.addEventListener('click', function() { hideInstallPopup(true); });
+      }
+
+      var params = new URLSearchParams(window.location.search);
+      var m = params.get('m') || params.get('mualij') || localStorage.getItem('alraqi_patient_mualij_v1') || '';
+      if (m) { try { localStorage.setItem('alraqi_patient_mualij_v1', m); } catch (e) {} }
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./sw.js?v=5').then(function(reg) {
+          try { reg.update(); } catch (e) {}
+        }).catch(function() {});
+      }
+
+      // Immediately capture native install prompt and show 1-tap popup
+      window.addEventListener('beforeinstallprompt', function(e) {
+        e.preventDefault();
+        deferredPrompt = e;
+        showInstallPopup(false);
+      });
+      window.addEventListener('appinstalled', function() {
+        deferredPrompt = null;
+        hideInstallPopup(true);
+      });
+
+      // Fallback auto-popup for WhatsApp in-app browser, iOS Safari, or browsers without beforeinstallprompt
+      if (!isStandaloneInstalled()) {
+        setTimeout(function() {
+          var bd = document.getElementById('installBackdrop');
+          if (bd && bd.style.display !== 'flex') {
+            showInstallPopup(false);
+          }
+        }, 2200);
+      }
+
+      window.addEventListener('message', function(ev) {
+        if (!ev || !ev.data) return;
+        if (ev.data.type === 'ALRAQI_INSTALL_APP') {
+          if (deferredPrompt) {
+            deferredPrompt.prompt();
+            deferredPrompt.userChoice.finally(function() { deferredPrompt = null; hideInstallPopup(true); });
+          } else {
+            showInstallPopup(true);
+          }
+        } else if (ev.data.type === 'ALRAQI_LANG_CHANGED' && ev.data.lang) {
+          try {
+            localStorage.setItem('ALRAQI_LANG_V1', ev.data.lang);
+            localStorage.setItem('ALRAQI_LANG_MANUAL_V1', '1');
+          } catch (e) {}
+          applySplashLang(ev.data.lang);
+        }
+      });
+
+      fetch(API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({ action: 'get_patient_lite_html_v150', mualij: m })
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(res) {
+        if (res && res.ok && res.html) {
+          var frame = document.getElementById('appFrame');
+          var splash = document.getElementById('splashWrap');
+          frame.onload = function() {
+            try { frame.contentWindow.postMessage({ type: 'ALRAQI_SET_LANG', lang: activeLang }, '*'); } catch (e) {}
+          };
+          frame.srcdoc = res.html;
+          frame.style.display = 'block';
+          if (splash) splash.style.display = 'none';
+        } else {
+          document.getElementById('st').textContent = (SPLASH_I18N[activeLang] || SPLASH_I18N.ur).retry;
+        }
+      })
+      .catch(function() {
+        document.getElementById('st').textContent = (SPLASH_I18N[activeLang] || SPLASH_I18N.ur).netErr;
+      });
+    })();
+  </script>
+</body>
+</html>

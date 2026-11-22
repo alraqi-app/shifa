@@ -1,0 +1,27 @@
+{
+  "name": "الراقي — الرقية الشرعية والعلاج الروحاني",
+  "short_name": "الراقي",
+  "description": "الرقية الشرعية الموثوقة والأذكار المسنونة والتواصل المباشر مع المعالج",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "dir": "rtl",
+  "lang": "ar",
+  "background_color": "#022c22",
+  "theme_color": "#065f46",
+  "icons": [
+    {
+      "src": "./icon-192.png?v=5",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icon-512.png?v=5",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

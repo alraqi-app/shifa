@@ -1,0 +1,27 @@
+{
+  "name": "Al-Raqi — Ruqyah Shariah & Spiritual Guidance",
+  "short_name": "Al-Raqi",
+  "description": "Authentic Ruqyah Shariah, Prophetic supplications, personalized daily program and direct practitioner guidance",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "dir": "ltr",
+  "lang": "en-US",
+  "background_color": "#022c22",
+  "theme_color": "#065f46",
+  "icons": [
+    {
+      "src": "./icon-192.png?v=5",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icon-512.png?v=5",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

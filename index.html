@@ -3,12 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-  <title>الراقی — روحانی شفاء و رابطہ</title>
+  <title>الراقی | Al-Raqi — روحانی علاج، رقیہ شرعیہ و مسنون وظائف (Ruqyah Shariah)</title>
   <meta name="theme-color" content="#065f46" />
-  <meta name="description" content="مریض اور سائل کے لیے الراقی کی محفوظ، تیز اور 100 فیصد مفت ایپ" />
-  <link rel="manifest" href="manifest.json" />
-  <link rel="icon" type="image/png" href="icon-192.png" />
-  <link rel="apple-touch-icon" href="icon-192.png" />
+  <meta name="application-name" content="الراقی" />
+  <meta name="apple-mobile-web-app-title" content="الراقی" />
+  <meta name="description" content="الراقی (Al-Raqi): مستند روحانی علاج، الرقية الشرعية، مسنون وظائف، خوابوں کی رہنمائی اور معالج سے محفوظ رابطہ۔ Authentic Ruqyah Shariah, Islamic spiritual guidance &amp; Prophetic supplications." />
+  <meta name="keywords" content="الراقی, رقیہ شرعیہ, دم, وظائف, روحانی علاج, الرقية الشرعية, علاج روحاني, أذكار, Al-Raqi, Ruqyah Shariah, Islamic Spiritual Healing, Manzil, Dua, Wazaif" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="الراقی | Al-Raqi — Ruqyah Shariah &amp; Spiritual Guidance" />
+  <meta property="og:description" content="مستند روحانی علاج، الرقية الشرعية اور مسنون وظائف۔ Authentic Ruqyah Shariah &amp; Prophetic supplications." />
+  <meta property="og:image" content="./icon-512.png?v=5" />
+  <link id="dynManifest" rel="manifest" href="./manifest.json?v=5" />
+  <link rel="icon" type="image/png" href="./icon-192.png?v=5" />
+  <link rel="apple-touch-icon" href="./icon-192.png?v=5" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Al-Raqi (الراقی)",
+    "alternateName": ["الراقی", "الراقي", "Al-Raqi Shifa", "Ruqyah Shariah App"],
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Web, Android, iOS, Windows, macOS",
+    "inLanguage": ["ur", "ar", "en-GB", "en-US"],
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Authentic Ruqyah Shariah, Prophetic supplications, and direct spiritual practitioner guidance in Urdu, Arabic, UK English and US English."
+  }
+  </script>
   <style>
     * { box-sizing: border-box; }
     html, body {
@@ -26,11 +46,12 @@
     .box {
       max-width: 390px; width: 100%;
       background: rgba(255,255,255,0.09); border: 2px solid #34d399;
-      border-radius: 22px; padding: 24px 18px;
+      border-radius: 22px; padding: 26px 20px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
     }
-    .box img { width: 96px; height: 96px; border-radius: 18px; background: #fff; padding: 4px; border: 3px solid #34d399; }
-    .box h1 { margin: 10px 0 6px; font-size: 1.9rem; }
-    .box p { margin: 0 0 12px; color: #a7f3d0; font-size: 0.92rem; }
+    .box img { width: 104px; height: 104px; border-radius: 20px; background: #fff; padding: 4px; border: 3px solid #34d399; object-fit: cover; }
+    .box h1 { margin: 12px 0 6px; font-size: 1.95rem; color: #ffffff; }
+    .box p { margin: 0 0 10px; color: #a7f3d0; font-size: 0.94rem; line-height: 1.7; }
     #appFrame {
       position: fixed; inset: 0;
       width: 100%; height: 100%;
@@ -42,41 +63,132 @@
 <body>
   <div id="splashWrap">
     <div class="box">
-      <img src="icon-192.png" alt="الراقی" />
-      <h1>الراقی</h1>
-      <p id="st">⏳ آپ کا محفوظ پورٹل لوڈ ہو رہا ہے...</p>
+      <img src="./icon-192.png?v=5" alt="Al-Raqi" />
+      <h1 id="spTitle">الراقی</h1>
+      <p id="spSub">روحانی علاج و رہنمائی</p>
+      <p id="st" style="font-size:0.85rem;color:#fef08a;">⏳ لوڈ ہو رہا ہے...</p>
     </div>
   </div>
-  <iframe id="appFrame" title="الراقی" allow="microphone; autoplay; clipboard-write"></iframe>
+  <iframe id="appFrame" title="Al-Raqi" allow="microphone; autoplay; clipboard-write"></iframe>
 
   <script>
     (function() {
       var API = 'https://script.google.com/macros/s/AKfycbzKlQ08MZlyKir8IvIZkqLrych04BuJYseRe2_Bb2xcDTu39qfguH4rmqFdqqc9Fkgl7g/exec';
+      var SPLASH_I18N = {
+        'ur': { dir: 'rtl', title: 'الراقی', sub: 'روحانی علاج و رہنمائی', loading: '⏳ لوڈ ہو رہا ہے...', retry: '⚠️ لوڈنگ میں تاخیر، دوبارہ ریفریش کریں۔', netErr: '⚠️ انٹرنیٹ کنکشن چیک کر کے دوبارہ کوشش کریں۔', installTip: 'موبائل یا کمپیوٹر میں انسٹال کرنے کے لیے کروم مینو (⋮) سے "Install app" منتخب کریں۔', manifest: './manifest-ur.json?v=5' },
+        'ar': { dir: 'rtl', title: 'الراقي', sub: 'الرقية الشرعية والعلاج الروحاني', loading: '⏳ جاري التحميل...', retry: '⚠️ تأخر في التحميل، يرجى التحديث.', netErr: '⚠️ تحقق من اتصال الإنترنت وحاول مرة أخرى.', installTip: 'لتثبيت التطبيق اختر "Install app" من قائمة المتصفح (⋮).', manifest: './manifest-ar.json?v=5' },
+        'en-GB': { dir: 'ltr', title: 'Al-Raqi', sub: 'Ruqyah Shariah & Spiritual Guidance Centre', loading: '⏳ Loading...', retry: '⚠️ Loading delayed, please refresh.', netErr: '⚠️ Please check your internet connection and try again.', installTip: 'To install on mobile or laptop, open the browser menu (⋮) and choose "Install app".', manifest: './manifest-en-gb.json?v=5' },
+        'en-US': { dir: 'ltr', title: 'Al-Raqi', sub: 'Ruqyah Shariah & Spiritual Guidance Center', loading: '⏳ Loading...', retry: '⚠️ Loading delayed, please refresh.', netErr: '⚠️ Please check your internet connection and try again.', installTip: 'To install on mobile or laptop, open the browser menu (⋮) and choose "Install app".', manifest: './manifest-en-us.json?v=5' }
+      };
+
+      var ARAB_CC = ['SA','AE','QA','KW','OM','BH','EG','JO','IQ','YE','SY','LB','PS','SD','LY','TN','DZ','MA','MR','SO','DJ','KM'];
+      var UK_CC = ['GB','UK','AU','NZ','IE','ZA','SG','MY','HK','MT','CY'];
+      var US_CC = ['US','CA','PH','PR'];
+      var UR_CC = ['PK','IN'];
+
+      function mapCountryToLang(cc) {
+        cc = String(cc || '').toUpperCase().trim();
+        if (UR_CC.indexOf(cc) !== -1) return 'ur';
+        if (ARAB_CC.indexOf(cc) !== -1) return 'ar';
+        if (UK_CC.indexOf(cc) !== -1) return 'en-GB';
+        if (US_CC.indexOf(cc) !== -1) return 'en-US';
+        return 'en-GB';
+      }
+
+      function detectFastLang() {
+        try {
+          var q = new URLSearchParams(window.location.search).get('lang');
+          if (q && ['ur','ar','en-GB','en-US'].indexOf(q) !== -1) return q;
+          var saved = localStorage.getItem('ALRAQI_LANG_V1');
+          if (saved && ['ur','ar','en-GB','en-US'].indexOf(saved) !== -1) return saved;
+        } catch (e) {}
+        try {
+          var tz = (Intl.DateTimeFormat().resolvedOptions().timeZone || '').toLowerCase();
+          if (tz.indexOf('karachi') !== -1 || tz.indexOf('kolkata') !== -1) return 'ur';
+          if (tz.indexOf('riyadh') !== -1 || tz.indexOf('dubai') !== -1 || tz.indexOf('qatar') !== -1 || tz.indexOf('kuwait') !== -1 || tz.indexOf('cairo') !== -1 || tz.indexOf('amman') !== -1 || tz.indexOf('baghdad') !== -1 || tz.indexOf('muscat') !== -1 || tz.indexOf('bahrain') !== -1) return 'ar';
+          if (tz.indexOf('london') !== -1 || tz.indexOf('sydney') !== -1 || tz.indexOf('melbourne') !== -1 || tz.indexOf('auckland') !== -1 || tz.indexOf('dublin') !== -1) return 'en-GB';
+          if (tz.indexOf('america/') !== -1 || tz.indexOf('new_york') !== -1 || tz.indexOf('chicago') !== -1 || tz.indexOf('los_angeles') !== -1 || tz.indexOf('toronto') !== -1) return 'en-US';
+        } catch (e) {}
+        var nav = (navigator.language || 'ur').toLowerCase();
+        if (nav.indexOf('ar') === 0) return 'ar';
+        if (nav.indexOf('ur') === 0) return 'ur';
+        if (nav === 'en-us' || nav === 'en-ca') return 'en-US';
+        if (nav.indexOf('en') === 0) return 'en-GB';
+        return 'ur';
+      }
+
+      function detectCountryGeoAsync(cb) {
+        try {
+          if (localStorage.getItem('ALRAQI_LANG_MANUAL_V1') === '1') return;
+        } catch (e) {}
+        var done = false;
+        var timer = setTimeout(function() { done = true; }, 2200);
+        fetch('https://ipapi.co/country/', { cache: 'no-store' })
+          .then(function(r) { return r.ok ? r.text() : ''; })
+          .then(function(cc) {
+            if (done) return;
+            clearTimeout(timer);
+            cc = String(cc || '').trim();
+            if (cc.length === 2) {
+              var lang = mapCountryToLang(cc);
+              try { localStorage.setItem('ALRAQI_LANG_V1', lang); } catch (e) {}
+              cb(lang);
+            }
+          }).catch(function() {});
+      }
+
+      var activeLang = detectFastLang();
+      function applySplashLang(lang) {
+        activeLang = SPLASH_I18N[lang] ? lang : 'ur';
+        var t = SPLASH_I18N[activeLang];
+        document.documentElement.lang = activeLang;
+        document.documentElement.dir = t.dir;
+        document.title = t.title + ' — ' + t.sub;
+        var elT = document.getElementById('spTitle');
+        var elS = document.getElementById('spSub');
+        var elSt = document.getElementById('st');
+        var mf = document.getElementById('dynManifest');
+        if (elT) elT.textContent = t.title;
+        if (elS) elS.textContent = t.sub;
+        if (elSt && elSt.textContent.indexOf('⏳') === 0) elSt.textContent = t.loading;
+        if (mf) mf.setAttribute('href', t.manifest);
+      }
+      applySplashLang(activeLang);
+      detectCountryGeoAsync(function(geoLang) {
+        applySplashLang(geoLang);
+        try {
+          var fr = document.getElementById('appFrame');
+          if (fr && fr.contentWindow) fr.contentWindow.postMessage({ type: 'ALRAQI_SET_LANG', lang: geoLang }, '*');
+        } catch (e) {}
+      });
+
       var params = new URLSearchParams(window.location.search);
       var m = params.get('m') || params.get('mualij') || localStorage.getItem('alraqi_patient_mualij_v1') || '';
       if (m) { try { localStorage.setItem('alraqi_patient_mualij_v1', m); } catch (e) {} }
-
       if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('sw.js').catch(function() {});
+        navigator.serviceWorker.register('./sw.js?v=5').then(function(reg) {
+          try { reg.update(); } catch (e) {}
+        }).catch(function() {});
       }
-
       var deferredPrompt = null;
-      window.addEventListener('beforeinstallprompt', function(e) {
-        e.preventDefault();
-        deferredPrompt = e;
-      });
-
+      window.addEventListener('beforeinstallprompt', function(e) { e.preventDefault(); deferredPrompt = e; });
       window.addEventListener('message', function(ev) {
-        if (ev && ev.data && ev.data.type === 'ALRAQI_INSTALL_APP') {
+        if (!ev || !ev.data) return;
+        if (ev.data.type === 'ALRAQI_INSTALL_APP') {
           if (deferredPrompt) {
             deferredPrompt.prompt();
             deferredPrompt.userChoice.finally(function() { deferredPrompt = null; });
           } else {
-            alert('موبائل یا کمپیوٹر میں انسٹال کرنے کے لیے براؤزر کے اوپر والے ایڈریس بار یا مینو (⋮) سے "Install app" منتخب کریں۔');
+            alert((SPLASH_I18N[activeLang] || SPLASH_I18N.ur).installTip);
           }
+        } else if (ev.data.type === 'ALRAQI_LANG_CHANGED' && ev.data.lang) {
+          try {
+            localStorage.setItem('ALRAQI_LANG_V1', ev.data.lang);
+            localStorage.setItem('ALRAQI_LANG_MANUAL_V1', '1');
+          } catch (e) {}
+          applySplashLang(ev.data.lang);
         }
       });
-
       fetch(API, {
         method: 'POST',
         headers: { 'Content-Type': 'text/plain;charset=utf-8' },
@@ -87,15 +199,18 @@
         if (res && res.ok && res.html) {
           var frame = document.getElementById('appFrame');
           var splash = document.getElementById('splashWrap');
+          frame.onload = function() {
+            try { frame.contentWindow.postMessage({ type: 'ALRAQI_SET_LANG', lang: activeLang }, '*'); } catch (e) {}
+          };
           frame.srcdoc = res.html;
           frame.style.display = 'block';
           if (splash) splash.style.display = 'none';
         } else {
-          document.getElementById('st').textContent = '⚠️ لوڈنگ میں تاخیر، دوبارہ ریفریش کریں۔';
+          document.getElementById('st').textContent = (SPLASH_I18N[activeLang] || SPLASH_I18N.ur).retry;
         }
       })
       .catch(function() {
-        document.getElementById('st').textContent = '⚠️ انٹرنیٹ کنکشن چیک کریں۔';
+        document.getElementById('st').textContent = (SPLASH_I18N[activeLang] || SPLASH_I18N.ur).netErr;
       });
     })();
   </script>

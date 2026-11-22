@@ -1,0 +1,1543 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl" data-alraqi-ver="1.55">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>الراقی — روحانی علاج و رہنمائی</title>
+  <meta name="theme-color" content="#065f46" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" type="image/png" href="icon-192.png" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary-950: #022c22;
+      --primary-900: #064e3b;
+      --primary-800: #065f46;
+      --primary-700: #047857;
+      --primary-600: #059669;
+      --primary-100: #d1fae5;
+      --primary-50: #ecfdf5;
+      --accent-500: #10b981;
+      --accent-400: #34d399;
+      --accent-200: #a7f3d0;
+      --gold: #d4af37;
+      --slate-800: #1e293b;
+      --slate-600: #475569;
+      --slate-200: #e2e8f0;
+      --bg-page: #f0fdf4;
+      --wazaif-zoom: 1;
+    }
+    * { box-sizing: border-box; }
+    body, html {
+      margin: 0; padding: 0; width: 100%;
+      font-family: 'Noto Nastaliq Urdu', serif;
+      color: var(--slate-800);
+      background-color: var(--bg-page);
+      overflow-x: hidden;
+      line-height: 1.92;
+      -webkit-text-size-adjust: 100%;
+      padding-bottom: 84px;
+    }
+    .en-time {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-weight: 700;
+      direction: ltr;
+      display: inline-block;
+      color: var(--primary-900);
+      font-size: 0.96rem;
+    }
+    .site-header {
+      background: linear-gradient(135deg, var(--primary-950) 0%, var(--primary-800) 60%, var(--primary-700) 100%);
+      border-bottom: 4px solid var(--accent-400);
+      color: #ffffff;
+      padding: 18px 18px;
+      position: relative;
+      box-shadow: 0 10px 30px rgba(2, 44, 34, 0.24);
+    }
+    .header-inner {
+      max-width: 1060px; margin: 0 auto;
+      display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px;
+    }
+    .brand-area { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+    .brand-logo-img {
+      width: 82px; height: 82px; border-radius: 18px; background: #ffffff; padding: 4px;
+      border: 3px solid var(--accent-400); box-shadow: 0 4px 18px rgba(52, 211, 153, 0.45); object-fit: cover;
+    }
+    .brand-text h1 {
+      font-family: 'Aref Ruqaa', serif; font-size: 2.15em; margin: 2px 0 0; color: #ffffff; line-height: 1.35;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+    }
+    .brand-text p { margin: 0; font-size: 0.98em; color: var(--accent-200); font-weight: bold; line-height: 1.8; }
+    .top-nav-links {
+      width: 100%; max-width: 960px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(118px, 1fr)); gap: 8px;
+    }
+    .nav-btn {
+      background: rgba(255, 255, 255, 0.13); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.3);
+      min-height: 44px; padding: 6px 8px; border-radius: 12px;
+      font-family: 'Noto Nastaliq Urdu', serif; font-size: 0.84em; cursor: pointer;
+      display: inline-flex; align-items: center; justify-content: center; gap: 5px; position: relative;
+    }
+    .nav-btn:hover, .nav-btn.active { background: var(--accent-400); color: var(--primary-950); font-weight: bold; border-color: var(--accent-400); }
+    .nav-btn-accent { background: linear-gradient(135deg, var(--accent-400), var(--accent-500)); color: var(--primary-950); font-weight: bold; border: none; }
+    .notif-dot {
+      display: none; position: absolute; top: 4px; left: 6px;
+      background: #ef4444; color: #fff; font-family: Arial, sans-serif; font-size: 0.7rem; font-weight: 900;
+      min-width: 18px; height: 18px; border-radius: 999px; line-height: 18px; text-align: center; padding: 0 4px;
+    }
+    .update-banner { display: none; background: #064e3b; color: #fef08a; text-align: center; padding: 8px 14px; font-size: 0.88em; font-weight: 700; border-bottom: 2px solid var(--gold); }
+    .closure-banner { display: none; background: #fef2f2; color: #991b1b; border: 2px solid #ef4444; border-radius: 16px; padding: 14px 16px; margin-bottom: 16px; text-align: center; font-weight: 700; }
+    .website-container { max-width: 960px; margin: 20px auto 0; padding: 0 16px; }
+    .card {
+      background: #ffffff; border: 1.5px solid var(--primary-100); border-top: 4px solid var(--primary-700);
+      border-radius: 18px; padding: 18px; margin-bottom: 16px; box-shadow: 0 8px 24px rgba(6, 78, 59, 0.08);
+    }
+    .card-title {
+      margin: 0 0 10px; font-size: 1.08em; color: var(--primary-900);
+      display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap;
+      border-bottom: 1.5px solid var(--primary-100); padding-bottom: 8px;
+    }
+    .muted { color: var(--slate-600); font-size: 0.92em; }
+    .section-pane { display: none; }
+    .section-pane.active { display: block; }
+    .btn-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(145px, 1fr)); gap: 10px; margin-top: 10px; }
+    .btn {
+      border: none; border-radius: 12px; min-height: 44px; padding: 8px 14px;
+      font-family: 'Noto Nastaliq Urdu', serif; font-size: 0.88em; font-weight: 700; cursor: pointer;
+      display: inline-flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none; text-align: center;
+    }
+    .btn-primary { background: linear-gradient(135deg, var(--primary-800), var(--primary-700)); color: #ffffff; }
+    .btn-accent { background: linear-gradient(135deg, var(--accent-400), var(--accent-500)); color: var(--primary-950); }
+    .btn-outline { background: #ffffff; color: var(--primary-900); border: 1.5px solid var(--primary-700); }
+    .btn-soft { background: var(--primary-50); color: var(--primary-900); border: 1px solid var(--accent-200); }
+    .btn-danger { background: #b91c1c; color: #ffffff; }
+    .btn-sm { min-height: 38px; padding: 5px 12px; font-size: 0.83em; border-radius: 10px; }
+    .field-label { display: block; font-size: 0.9em; font-weight: 700; color: var(--primary-900); margin: 10px 0 4px; }
+    .input, .textarea, .select {
+      width: 100%; padding: 9px 12px; border: 1.5px solid var(--slate-200); border-radius: 12px;
+      font-family: 'Noto Nastaliq Urdu', serif; font-size: 0.94em; background: #ffffff; color: var(--slate-800);
+    }
+    .textarea { min-height: 105px; resize: vertical; }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+    .info-chip { background: var(--primary-50); border: 1px solid var(--accent-200); border-radius: 12px; padding: 10px 14px; font-size: 0.88em; color: var(--primary-900); }
+    .subtabs { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; margin-bottom: 12px; }
+    .subtab-btn {
+      min-height: 44px; background: var(--primary-50); color: var(--primary-900);
+      border: 1.5px solid var(--accent-200); border-radius: 12px; padding: 7px 10px;
+      font-family: 'Noto Nastaliq Urdu', serif; font-size: 0.85em; font-weight: 700; cursor: pointer;
+    }
+    .subtab-btn.active { background: var(--primary-800); color: #ffffff; border-color: var(--accent-400); }
+    .folder-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-bottom: 14px; }
+    .folder-card {
+      background: linear-gradient(145deg, #ffffff 0%, #ecfdf5 100%); border: 2px solid var(--accent-200);
+      border-radius: 16px; padding: 14px 10px; text-align: center; cursor: pointer;
+      font-family: 'Noto Nastaliq Urdu', serif; font-weight: 700; color: var(--primary-900);
+    }
+    .folder-card.active { background: var(--primary-800); color: #ffffff; border-color: var(--gold); }
+    .dua-index-item { background: #ffffff; border: 1.5px solid var(--primary-100); border-right: 4px solid var(--primary-700); border-radius: 14px; margin-bottom: 8px; overflow: hidden; }
+    .dua-index-btn {
+      width: 100%; background: #ffffff; border: none; padding: 11px 14px;
+      display: flex; align-items: center; justify-content: space-between; gap: 10px; text-align: right;
+      cursor: pointer; font-family: 'Noto Nastaliq Urdu', serif; font-size: 0.95em; font-weight: 700; color: var(--primary-900);
+    }
+    .dua-body { padding: 0 14px 14px; border-top: 1px dashed var(--accent-200); background: #f8fafc; }
+    .arabic-text {
+      font-family: 'Amiri', 'Traditional Arabic', serif; font-size: calc(1.44rem * var(--wazaif-zoom)); line-height: 2.2;
+      color: var(--primary-950); background: #ffffff; border: 1px solid var(--slate-200); border-radius: 12px;
+      padding: 12px 14px; margin: 10px 0; white-space: pre-line; text-align: right;
+    }
+    .tasbeeh-btn {
+      background: linear-gradient(135deg, var(--primary-800), var(--primary-950)); color: #ffffff;
+      border: 1.5px solid var(--accent-400); border-radius: 12px; min-height: 44px; padding: 6px 14px;
+      font-family: 'Noto Nastaliq Urdu', serif; font-size: 0.86em; font-weight: 700; cursor: pointer;
+    }
+    .tasbeeh-btn.done { background: #15803d; border-color: #86efac; }
+    .audio-repeat-box {
+      margin-top: 10px; background: #ecfdf5; border: 1.5px solid #6ee7b7; border-radius: 12px; padding: 10px 12px;
+    }
+    .date-chip-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 8px; margin-bottom: 12px; }
+    .busy-pill {
+      display: inline-block; background: #fee2e2; color: #991b1b; border: 1px solid #fca5a5;
+      padding: 3px 10px; border-radius: 999px; margin: 3px; font-family: 'Segoe UI', Arial, sans-serif; font-size: 0.82rem; font-weight: 700; direction: ltr;
+    }
+    .thread-item { border: 1.5px solid var(--primary-100); border-radius: 14px; padding: 12px 14px; margin-bottom: 10px; background: #ffffff; }
+    .reply-box { margin-top: 10px; background: #ecfdf5; border-right: 4px solid var(--primary-700); border-radius: 10px; padding: 10px 12px; color: var(--primary-950); }
+    .badge-pending { display: inline-block; background: #fef3c7; color: #92400e; padding: 2px 10px; border-radius: 999px; font-size: 0.78em; font-weight: 700; }
+    .badge-ok { display: inline-block; background: #dcfce7; color: #166534; padding: 2px 10px; border-radius: 999px; font-size: 0.78em; font-weight: 700; }
+    .badge-no { display: inline-block; background: #fee2e2; color: #991b1b; padding: 2px 10px; border-radius: 999px; font-size: 0.78em; font-weight: 700; }
+    .status-box { padding: 10px 14px; border-radius: 12px; font-size: 0.88em; font-weight: 700; margin-top: 10px; display: none; }
+    .status-box.ok { display: block; background: #ecfdf5; color: #065f46; border: 1px solid #6ee7b7; }
+    .status-box.err { display: block; background: #fef2f2; color: #991b1b; border: 1px solid #fca5a5; }
+    .bottom-nav {
+      position: fixed; bottom: 0; left: 0; right: 0; background: #ffffff; border-top: 2px solid var(--accent-400);
+      display: grid; grid-template-columns: repeat(6, 1fr); z-index: 60; box-shadow: 0 -6px 20px rgba(2, 44, 34, 0.12);
+    }
+    .bnav-btn {
+      background: transparent; border: none; padding: 6px 2px 8px;
+      display: flex; flex-direction: column; align-items: center; gap: 1px; position: relative;
+      font-family: 'Noto Nastaliq Urdu', serif; font-size: 0.68rem; font-weight: 700; color: var(--slate-600); cursor: pointer;
+    }
+    .bnav-btn .ico { font-size: 1.12rem; line-height: 1.1; }
+    .bnav-btn.active { color: var(--primary-900); background: var(--primary-50); border-top: 3px solid var(--primary-700); margin-top: -2px; }
+    @media print {
+      .site-header, .bottom-nav, .subtabs, .no-print { display: none !important; }
+      body { background: #ffffff; padding: 0; }
+      .card { box-shadow: none; border: none; padding: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div id="autoUpdateBanner" class="update-banner no-print">✨ نئی اپ ڈیٹ دستیاب ہو چکی ہے — تازہ ورژن لوڈ کیا جا رہا ہے...</div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <img class="brand-logo-img" src="data:image/jpeg;base64,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" alt="الراقی" />
+        <div class="brand-text">
+          <h1>الراقی</h1>
+          <p>مستند روحانی رہنمائی، مسنون علاج اور اپنے معالج سے براہِ راست محفوظ رابطہ</p>
+        </div>
+      </div>
+      <div class="top-nav-links">
+        <button type="button" class="nav-btn active" id="tnav_home" onclick="openTab('home')">🏠 ہوم پیج</button>
+        <button type="button" class="nav-btn" id="tnav_wazaif" onclick="openTab('wazaif')">📂 میرے وظائف</button>
+        <button type="button" class="nav-btn" id="tnav_chat" onclick="openTab('chat')">💬 ان-ایپ چیٹ <span id="chatBadgeTop" class="notif-dot"></span></button>
+        <button type="button" class="nav-btn" id="tnav_dream" onclick="openTab('dream')">🌙 خواب و علامات</button>
+        <button type="button" class="nav-btn" id="tnav_appt" onclick="openTab('appt')">📅 وقت لیں</button>
+        <button type="button" class="nav-btn" id="tnav_help" onclick="openTab('help')">🔔 سیٹنگ و رابطہ</button>
+        <button type="button" class="nav-btn" onclick="manualCheckUpdate(true)">🔄 ریفریش</button>
+        <button type="button" id="ptInstallBtn" class="nav-btn nav-btn-accent" onclick="triggerPatientInstall()">📲 انسٹال کریں</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="website-container">
+    <div id="todayClosureBanner" class="closure-banner"></div>
+
+    <!-- TAB 1: HOME PAGE -->
+    <section id="pane_home" class="section-pane active">
+      <div class="card">
+        <div class="card-title"><span>🕌 الراقی — روحانی علاج و رہنمائی</span></div>
+        <p class="muted" style="margin:0 0 12px;">
+          یہ سلسلہ سائلین اور مریضوں کو اپنے معالج کے ساتھ منظم، بااعتماد اور مکمل رازداری کے ساتھ مربوط رکھنے کے لیے قائم کیا گیا ہے۔ یہاں آپ اپنی سہولت کے مطابق مسنون دعائیں، الرقیۃ الشرعیۃ اور اپنے معالج کی تجویز کردہ تلاوت و وظائف واضح خط اور آڈیو کے ساتھ جاری رکھ سکتے ہیں، اپنے خواب یا روحانی کیفیات لکھ کر یا بول کر محفوظ طریقے سے معالج تک پہنچا سکتے ہیں، اور علاج گاہ میں ملاقات یا آن لائن مشاورت کا وقت باآسانی طے کر سکتے ہیں۔
+        </p>
+        <div class="grid-2">
+          <div class="info-chip"><strong>📂 منظم وظائف فولڈرز:</strong> معالج کی تجویز کردہ تلاوت اوقات یا نمازوں کے حساب سے الگ فولڈرز میں۔</div>
+          <div class="info-chip"><strong>🔒 مکمل امانت و رازداری:</strong> آپ کے خواب، علامات اور تمام تفصیلات صرف آپ کے متعلقہ معالج تک محدود رہتی ہیں۔</div>
+        </div>
+      </div>
+
+      <!-- Dignified Ilajgah Card (No پرائیویٹ, No stiff wrapper, Bold English Timings) -->
+      <div class="card" id="mualijCardBox">
+        <div class="card-title" id="ilajgahCardTitle"><span>🩺 الراقی — مرکزِ روحانی علاج</span></div>
+        <div id="mualijCardContent"><div class="muted">⏳ تفصیل لوڈ ہو رہی ہے...</div></div>
+
+        <div id="unassignedFinderWrap" style="display:none;margin-top:14px;padding-top:12px;border-top:1.5px dashed var(--accent-200);">
+          <div class="info-chip" style="margin-bottom:10px;">
+            💡 <strong>ضروری نوٹ:</strong> اگر آپ اپنے معالج کا علاج گاہ کوڈ درج کرنا بھول گئے ہیں، تو نیچے کوڈ لکھ کر یا اپنے <strong>شہر اور نام</strong> سے اپنے منظور شدہ معالج کو تلاش کر کے ابھی منسلک کر سکتے ہیں۔
+          </div>
+          <div class="grid-2">
+            <input type="text" id="ilajgahCodeInput" class="input" placeholder="علاج گاہ کوڈ درج کریں (اگر معالج نے دیا ہو)" />
+            <button type="button" class="btn btn-primary" onclick="linkByIlajgahCode()">🔗 کوڈ سے منسلک کریں</button>
+          </div>
+          <div style="margin-top:10px;">
+            <button type="button" class="btn btn-outline" style="width:100%;" onclick="toggleCityFinder()">🔍 شہر کے حساب سے اپنے معالج کو تلاش کریں</button>
+            <div id="cityFinderBox" style="display:none;margin-top:10px;">
+              <div class="grid-2">
+                <input type="text" id="finderCityInput" class="input" placeholder="شہر کا نام لکھیں..." oninput="filterPractitionerList()" />
+                <input type="text" id="finderNameInput" class="input" placeholder="معالج کا نام لکھیں..." oninput="filterPractitionerList()" />
+              </div>
+              <div id="finderListResults" style="margin-top:10px;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Identity -->
+      <div class="card">
+        <div class="card-title">
+          <span>👤 سائل کا تعارف و محفوظ لاگ اِن</span>
+          <span id="ptAuthBadge" style="font-size:0.8em;color:var(--primary-700);font-weight:700;"></span>
+        </div>
+        <div id="ptLoggedInBox" style="display:none;">
+          <div class="info-chip" id="ptLoggedInInfo"></div>
+          <div class="btn-grid">
+            <button type="button" class="btn btn-primary" onclick="openTab('wazaif')">📂 میرے وظائف دیکھیں</button>
+            <button type="button" class="btn btn-accent" onclick="openTab('chat')">💬 معالج سے ان-ایپ چیٹ</button>
+            <button type="button" class="btn btn-outline" onclick="logoutPatient()">🚪 سیشن ختم کریں</button>
+          </div>
+        </div>
+        <div id="ptLoginFormBox">
+          <p class="muted" style="margin:0 0 8px;">اپنے معالج کے مقرر کردہ وظائف، ان-ایپ پیغامات اور اپائنٹمنٹ کا ریکارڈ محفوظ رکھنے کے لیے اپنا نام اور رابطہ نمبر یا ای میل درج کریں:</p>
+          <div class="grid-2">
+            <div><label class="field-label" for="ptName">سائل کا نام</label><input type="text" id="ptName" class="input" placeholder="اپنا مکمل نام لکھیں" /></div>
+            <div><label class="field-label" for="ptContact">موبائل نمبر یا ای میل</label><input type="text" id="ptContact" class="input" placeholder="03XX-XXXXXXX یا email@example.com" /></div>
+          </div>
+          <div id="ptOtpRow" style="display:none;margin-top:10px;">
+            <label class="field-label" for="ptOtpInput">۶ ہندسوں کا تصدیقی کوڈ (OTP)</label>
+            <div class="grid-2">
+              <input type="text" id="ptOtpInput" class="input" placeholder="123456" />
+              <button type="button" class="btn btn-accent" onclick="verifyPatientOtp()">✅ تصدیق کریں</button>
+            </div>
+          </div>
+          <div class="btn-grid">
+            <button type="button" class="btn btn-primary" onclick="startPatientOtp()">🔐 محفوظ لاگ اِن / تصدیق کریں</button>
+            <button type="button" class="btn btn-soft" onclick="shareAppLink()">📤 ایپ شیئر کریں</button>
+          </div>
+          <div id="ptLoginMsg" class="status-box"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: 2-TIER WAZAIF WITH REPEAT-COUNT MP3 AUDIO PLAYER -->
+    <section id="pane_wazaif" class="section-pane">
+      <div class="card">
+        <div class="card-title no-print">
+          <span>📂 میرے مقرر کردہ وظائف اور عام مسنون اذکار</span>
+          <div style="display:flex;gap:6px;align-items:center;">
+            <button type="button" class="btn btn-soft btn-sm" onclick="changeZoom(-0.12)">A-</button>
+            <button type="button" class="btn btn-soft btn-sm" onclick="changeZoom(0.12)">A+</button>
+            <button type="button" id="soundToggleBtn" class="btn btn-soft btn-sm" onclick="toggleSound()">🔔 آواز: آن</button>
+          </div>
+        </div>
+        <div class="subtabs no-print">
+          <button type="button" class="subtab-btn active" id="wTab_assigned" onclick="switchWazaifTab('assigned')">📂 میرے مقرر کردہ وظائف</button>
+          <button type="button" class="subtab-btn" id="wTab_basics" onclick="switchWazaifTab('basics')">🌿 عام مسنون اذکار</button>
+          <button type="button" class="subtab-btn" id="wTab_manzil" onclick="switchWazaifTab('manzil')">📖 مکمل منزل (بڑا خط)</button>
+        </div>
+        <div id="wazaifListContainer"></div>
+      </div>
+    </section>
+
+    <!-- TAB 3: PROMINENT SEPARATE IN-APP MESSAGING / CHAT + VOICE NOTES -->
+    <section id="pane_chat" class="section-pane">
+      <div class="card">
+        <div class="card-title">
+          <span>💬 معالج کے ساتھ براہِ راست ان-ایپ چیٹ و وائس میسج</span>
+          <button type="button" class="btn btn-soft btn-sm" onclick="loadPatientThread()">🔄 تازہ کریں</button>
+        </div>
+        <p class="muted" style="margin:0 0 10px;">یہاں سے آپ اپنے معالج کو براہِ راست تحریری پیغام یا آڈیو وائس میسج ارسال کر سکتے ہیں اور ان کے تمام جوابات ایک جگہ دیکھ سکتے ہیں۔</p>
+        <textarea id="ptChatText" class="textarea" placeholder="اپنے معالج کے لیے پیغام یہاں لکھیں..."></textarea>
+        <div id="chatVoicePreviewWrap" style="display:none;margin-top:10px;" class="info-chip">
+          <div style="margin-bottom:6px;">🎙️ <strong>آڈیو وائس میسج تیار ہے:</strong></div>
+          <audio id="chatVoicePreviewAudio" controls style="width:100%;"></audio>
+          <button type="button" class="btn btn-outline btn-sm" style="margin-top:6px;" onclick="clearRecordedVoice('chat')">🗑️ وائس میسج ہٹائیں</button>
+        </div>
+        <div class="btn-grid">
+          <button type="button" id="ptChatRecBtn" class="btn btn-outline" onclick="toggleAudioRecord('chat')">🎙️ وائس میسج ریکارڈ کریں</button>
+          <button type="button" class="btn btn-primary" onclick="submitInAppChat()">📨 پیغام ارسال کریں</button>
+        </div>
+        <div id="ptChatMsg" class="status-box"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span>📥 گفتگو اور معالج کے تصدیق شدہ جوابات</span></div>
+        <div id="patientChatThreadBox"><div class="muted">لاگ اِن کے بعد آپ کی گفتگو یہاں ظاہر ہو گی۔</div></div>
+      </div>
+    </section>
+
+    <!-- TAB 4: DEDICATED DREAMS & SYMPTOMS SUBMISSION -->
+    <section id="pane_dream" class="section-pane">
+      <div class="card">
+        <div class="card-title"><span>🌙 خواب یا روحانی علامات معالج کو ارسال کریں</span></div>
+        <p class="muted" style="margin:0 0 10px;">اپنا خواب یا روحانی کیفیات لکھ کر یا اردو میں بول کر معالج کو بھیجیں۔ معالج کے جائزے اور تصدیق کے بعد مستند تعبیر یا تشخیص نیچے ظاہر ہو گی۔</p>
+        <label class="field-label" for="ptCaseType">نوعیت منتخب کریں</label>
+        <select id="ptCaseType" class="select">
+          <option value="خواب کی تعبیر">🌙 خواب کی تعبیر</option>
+          <option value="روحانی علامات / کیفیت">🩺 روحانی علامات / کیفیت</option>
+        </select>
+        <label class="field-label" for="ptDreamText">تفصیل تحریر کریں یا بول کر لکھوائیں</label>
+        <textarea id="ptDreamText" class="textarea" placeholder="یہاں اپنا خواب یا علامات اردو میں بیان کریں..."></textarea>
+        <div class="btn-grid">
+          <button type="button" id="ptVoiceBtn" class="btn btn-soft" onclick="toggleUrduVoice()">🗣️ بول کر لکھیں (اردو)</button>
+          <button type="button" class="btn btn-primary" onclick="submitDreamOrSymptoms()">📨 معالج کو ارسال کریں</button>
+        </div>
+        <div id="ptCaseMsg" class="status-box"></div>
+      </div>
+      <div class="card">
+        <div class="card-title"><span>📋 میرے خواب، علامات اور معالج کی تصدیق شدہ تعبیر / تشخیص</span></div>
+        <div id="patientDreamThreadBox"><div class="muted">لاگ اِن کے بعد آپ کے خوابوں اور تشخیص کے جوابات یہاں ظاہر ہوں گے۔</div></div>
+      </div>
+    </section>
+
+    <!-- TAB 5: MULTI-DAY FLEXIBLE MINUTE APPOINTMENTS + RED-SLOT OVERLAP GUARD -->
+    <section id="pane_appt" class="section-pane">
+      <div class="card">
+        <div class="card-title">
+          <span>📅 مشاورت کے وقت کی درخواست</span>
+          <span style="font-size:0.78em;color:var(--primary-700);font-weight:700;">معالج کی منظوری سے وقت فکس ہوگا</span>
+        </div>
+        <div id="apptScheduleInfo" class="info-chip" style="margin-bottom:12px;">⏳ علاج گاہ اور نماز کے اوقات لوڈ ہو رہے ہیں...</div>
+        <div id="apptClosureNotice" class="closure-banner"></div>
+
+        <label class="field-label">تیز تاریخ منتخب کریں (آج وقت نہ ملے تو کل یا آئندہ تاریخ چنیں):</label>
+        <div class="date-chip-row">
+          <button type="button" class="btn btn-soft btn-sm" onclick="setQuickApptDate(0)">آج</button>
+          <button type="button" class="btn btn-soft btn-sm" onclick="setQuickApptDate(1)">کل</button>
+          <button type="button" class="btn btn-soft btn-sm" onclick="setQuickApptDate(2)">پرسوں</button>
+          <button type="button" class="btn btn-soft btn-sm" onclick="setQuickApptDate(3)">۳ دن بعد</button>
+        </div>
+
+        <div class="grid-2">
+          <div><label class="field-label" for="apptDate">یا کوئی بھی تاریخ منتخب کریں</label><input type="date" id="apptDate" class="input" onchange="loadPatientAppointments()" /></div>
+          <div><label class="field-label" for="apptStartTime">پسندیدہ شروع کا وقت</label><input type="time" id="apptStartTime" class="input" value="11:00" /></div>
+          <div>
+            <label class="field-label" for="apptDuration">درکار دورانیہ (منٹوں میں)</label>
+            <select id="apptDuration" class="select" onchange="onDurationSelectChange()">
+              <option value="15">15 منٹ</option>
+              <option value="30" selected>30 منٹ</option>
+              <option value="45">45 منٹ</option>
+              <option value="60">60 منٹ (1 گھنٹہ)</option>
+              <option value="custom">اپنی مرضی کے منٹ لکھیں...</option>
+            </select>
+            <input type="number" id="apptCustomMins" class="input" min="10" max="180" placeholder="مثلاً: 20 یا 50 منٹ" style="display:none;margin-top:6px;" />
+          </div>
+          <div>
+            <label class="field-label" for="apptMode">ملاقات کی صورت</label>
+            <select id="apptMode" class="select">
+              <option value="علاج گاہ میں بالمشافہ ملاقات">🏥 علاج گاہ میں بالمشافہ ملاقات</option>
+              <option value="آن لائن / فون مشاورت">📞 آن لائن / فون مشاورت</option>
+            </select>
+          </div>
+        </div>
+        <label class="field-label" for="apptNote">مختصر نوٹ (اختیاری)</label>
+        <input type="text" id="apptNote" class="input" placeholder="مثال: پہلی ملاقات / فالو اپ" />
+        <div id="approvedBusyBox" style="margin-top:10px;"></div>
+        <div class="btn-grid">
+          <button type="button" class="btn btn-primary" onclick="submitFlexApptRequest()">📨 وقت کی درخواست ارسال کریں</button>
+          <button type="button" class="btn btn-soft" onclick="loadPatientAppointments()">🔄 تازہ صورتحال دیکھیں</button>
+        </div>
+        <div id="apptMsg" class="status-box"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span>📋 میری اپائنٹمنٹ درخواستیں اور منظوری کی صورتحال</span></div>
+        <div id="myApptListBox"><div class="muted">آپ کی درخواستیں یہاں نظر آئیں گی۔</div></div>
+      </div>
+    </section>
+
+    <!-- TAB 6: NOTIFICATIONS SETTINGS, CONTACT & SMART SHARE -->
+    <section id="pane_help" class="section-pane">
+      <div class="card">
+        <div class="card-title"><span>🔔 نوٹیفیکیشن سیٹنگ (آن/آف اور مقررہ اوقات)</span></div>
+        <p class="muted" style="margin:0 0 10px;">نئے پیغام، تعبیرِ خواب، نئے وظائف یا اپائنٹمنٹ کی منظوری کی فوری اطلاع کے لیے نوٹیفیکیشن آن رکھیں یا اپنے پسندیدہ اوقات مقرر کریں:</p>
+        <div class="grid-2">
+          <div>
+            <label class="field-label" for="notifEnabledSel">نوٹیفیکیشن کی حالت</label>
+            <select id="notifEnabledSel" class="select">
+              <option value="on">🔔 آن (مقررہ اوقات میں اطلاع دیں)</option>
+              <option value="off">🔕 آف (مکمل خاموش)</option>
+            </select>
+          </div>
+          <div>
+            <label class="field-label">مقررہ اوقات (شروع تا اختتام)</label>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+              <input type="time" id="notifStartTime" class="input" value="09:00" />
+              <input type="time" id="notifEndTime" class="input" value="21:00" />
+            </div>
+          </div>
+        </div>
+        <div class="btn-grid">
+          <button type="button" class="btn btn-primary" onclick="saveNotifSettings()">💾 نوٹیفیکیشن سیٹنگ محفوظ کریں</button>
+          <button type="button" class="btn btn-outline" onclick="requestBrowserNotifPerm()">📲 براؤزر الرٹ اجازت دیں</button>
+        </div>
+        <div id="notifSaveMsg" class="status-box"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span>📞 براہِ راست رابطہ اور ایپ شیئر کریں</span></div>
+        <div id="helpContactActions" class="btn-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav no-print">
+    <button type="button" class="bnav-btn active" id="nav_home" onclick="openTab('home')"><span class="ico">🏠</span><span>ہوم</span></button>
+    <button type="button" class="bnav-btn" id="nav_wazaif" onclick="openTab('wazaif')"><span class="ico">📂</span><span>وظائف</span></button>
+    <button type="button" class="bnav-btn" id="nav_chat" onclick="openTab('chat')"><span class="ico">💬</span><span>چیٹ</span><span id="chatBadgeBot" class="notif-dot"></span></button>
+    <button type="button" class="bnav-btn" id="nav_dream" onclick="openTab('dream')"><span class="ico">🌙</span><span>خواب</span></button>
+    <button type="button" class="bnav-btn" id="nav_appt" onclick="openTab('appt')"><span class="ico">📅</span><span>وقت</span></button>
+    <button type="button" class="bnav-btn" id="nav_help" onclick="openTab('help')"><span class="ico">🔔</span><span>سیٹنگ</span></button>
+  </nav>
+
+  <script>
+  (function() {
+    'use strict';
+
+    var CURRENT_VER = '1.55';
+    var SHARE_BASE_URL = 'https://alraqi-app.github.io/shifa/';
+    var API_URL = 'https://script.google.com/macros/s/AKfycbzKlQ08MZlyKir8IvIZkqLrych04BuJYseRe2_Bb2xcDTu39qfguH4rmqFdqqc9Fkgl7g/exec';
+    var MANZIL_DRIVE_URL = 'https://drive.google.com/file/d/1ak0KeJ89sAjgEcIeRLspFwQjE3HVY0B7/view?usp=drivesdk';
+
+    var STORAGE_MUALIJ = 'alraqi_patient_mualij_v1';
+    var STORAGE_SESSION = 'alraqi_patient_session_v1';
+    var STORAGE_TASBEEH = 'alraqi_patient_tasbeeh_v1';
+    var STORAGE_NOTIF = 'alraqi_patient_notif_v155';
+    var STORAGE_SEEN_REPLIES = 'alraqi_patient_seen_replies_v155';
+
+    var state = {
+      mualijId: '',
+      mualijProfile: null,
+      schedule: null,
+      patient: null,
+      zoom: 1.0,
+      soundOn: true,
+      activeWazaifTab: 'assigned',
+      activeFolderIdx: 0,
+      assignedPlan: null,
+      openDuaId: 'b_durood',
+      tasbeeh: {},
+      approvedMualijeen: [],
+      approvedBusyList: [],
+      deferredInstallPrompt: null,
+      recognition: null,
+      mediaRecorder: null,
+      recordedChunks: [],
+      recordedAudioB64: '',
+      recordedAudioMime: 'audio/webm',
+      activeAudioObj: null,
+      activeAudioId: '',
+      audioRemainingLoops: 0,
+      speakingId: null,
+      lastUpdateCheck: 0,
+      notifCfg: { enabled: true, start: '09:00', end: '21:00' }
+    };
+
+    var BASIC_MASNOON_ITEMS = [
+      { id: 'b_durood', title: '۱. درودِ ابراہیمی (مکمل)', count: 7, arabic: 'اَللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدٍ وَّعَلٰى اٰلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلٰى اِبْرَاهِيْمَ وَعَلٰى اٰلِ اِبْرَاهِيْمَ اِنَّكَ حَمِيْدٌ مَّجِيْدٌ ۝\nاَللّٰهُمَّ بَارِكْ عَلٰى مُحَمَّدٍ وَّعَلٰى اٰلِ مُحَمَّدٍ كَمَا بَارَكْتَ عَلٰى اِبْرَاهِيْمَ وَعَلٰى اٰلِ اِبْرَاهِيْمَ اِنَّكَ حَمِيْدٌ مَّجِيْدٌ ۝' },
+      { id: 'b_fatiha', title: '۲. سورۃ الفاتحہ', count: 7, arabic: 'بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ ۝ اَلْحَمْدُ لِلّٰهِ رَبِّ الْعٰلَمِيْنَ ۝ الرَّحْمٰنِ الرَّحِيْمِ ۝ مٰلِكِ يَوْمِ الدِّيْنِ ۝ اِيَّاكَ نَعْبُدُ وَاِيَّاكَ نَسْتَعِيْنُ ۝ اِهْدِنَا الصِّرَاطَ الْمُسْتَقِيْمَ ۝ صِرَاطَ الَّذِيْنَ اَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوْبِ عَلَيْهِمْ وَلَا الضَّآلِّيْنَ ۝' },
+      { id: 'b_kursi', title: '۳. آیت الکرسی', count: 7, arabic: 'اَللّٰهُ لَآ اِلٰهَ اِلَّا هُوَ الْحَيُّ الْقَيُّوْمُ ۚ لَا تَاْخُذُهٗ سِنَةٌ وَّلَا نَوْمٌ ؕ لَهٗ مَا فِي السَّمٰوٰتِ وَمَا فِي الْاَرْضِ ؕ مَنْ ذَا الَّذِيْ يَشْفَعُ عِنْدَهٗٓ اِلَّا بِاِذْنِهٖ ؕ يَعْلَمُ مَا بَيْنَ اَيْدِيْهِمْ وَمَا خَلْفَهُمْ ۚ وَلَا يُحِيْطُوْنَ بِشَيْءٍ مِّنْ عِلْمِهٖٓ اِلَّا بِمَا شَآءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمٰوٰتِ وَالْاَرْضَ ۚ وَلَا يَـُٔوْدُهٗ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيْمُ ۝' },
+      { id: 'b_ikhlas', title: '۴. سورۃ الاخلاص', count: 3, arabic: 'بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ ۝ قُلْ هُوَ اللّٰهُ اَحَدٌ ﴿١﴾ اَللّٰهُ الصَّمَدُ ﴿٢﴾ لَمْ يَلِدْ وَلَمْ يُوْلَدْ ﴿٣﴾ وَلَمْ يَكُنْ لَّهٗ كُفُوًا اَحَدٌ ﴿٤﴾' },
+      { id: 'b_falaq', title: '۵. سورۃ الفلق', count: 3, arabic: 'بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ ۝ قُلْ اَعُوْذُ بِرَبِّ الْفَلَقِ ﴿١﴾ مِنْ شَرِّ مَا خَلَقَ ﴿٢﴾ وَمِنْ شَرِّ غَاسِقٍ اِذَا وَقَبَ ﴿٣﴾ وَمِنْ شَرِّ النَّفّٰثٰتِ فِي الْعُقَدِ ﴿٤﴾ وَمِنْ شَرِّ حَاسِدٍ اِذَا حَسَدَ ﴿٥﴾' },
+      { id: 'b_nas', title: '۶. سورۃ الناس', count: 3, arabic: 'بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ ۝ قُلْ اَعُوْذُ بِرَبِّ النَّاسِ ﴿١﴾ مَلِكِ النَّاسِ ﴿٢﴾ اِلٰهِ النَّاسِ ﴿٣﴾ مِنْ شَرِّ الْوَسْوَاسِ الْخَنَّاسِ ﴿٤﴾ الَّذِيْ يُوَسْوِسُ فِيْ صُدُوْرِ النَّاسِ ﴿٥﴾ مِنَ الْجِنَّةِ وَالنَّاسِ ﴿٦﴾' }
+    ];
+
+    var INTAKE_SYMPTOM_RULES = [
+      { label: 'ڈراؤنے خواب / بے خوابی', keys: ['خواب', 'ڈراؤنے', 'نیند', 'بے خوابی', 'سانپ', 'کتا', 'اونچائی'] },
+      { label: 'سر درد / کندھوں کا بوجھ', keys: ['سر درد', 'کندھے', 'بوجھ', 'جسم درد', 'تھکاوٹ'] },
+      { label: 'دل کی گھبراہٹ / وسوسے', keys: ['گھبراہٹ', 'وسوسے', 'بے چینی', 'خوف', 'تنگی', 'افسردگی'] },
+      { label: 'گھریلو ناچاقی / رشتے میں رکاوٹ', keys: ['ناچاقی', 'لڑائی', 'شادی', 'رشتہ', 'بندش', 'ناراضگی'] },
+      { label: 'کاروبار یا رزق میں رکاوٹ', keys: ['کاروبار', 'رزق', 'نقصان', 'بے برکتی', 'نوکری'] },
+      { label: 'عبادت / تلاوت میں رکاوٹ', keys: ['نماز', 'تلاوت', 'عبادت', 'سستی', 'دل نہیں لگتا'] }
+    ];
+
+    function detectQuietIntakeSymptoms(txt) {
+      var found = [];
+      var lower = String(txt || '').toLowerCase();
+      INTAKE_SYMPTOM_RULES.forEach(function(rule) {
+        for (var i = 0; i < rule.keys.length; i++) {
+          if (lower.indexOf(rule.keys[i]) !== -1) { found.push(rule.label); break; }
+        }
+      });
+      return found;
+    }
+
+    function fmt12h(hhmm) {
+      var p = String(hhmm || '').split(':');
+      if (p.length < 2) return hhmm || '';
+      var h = Number(p[0]);
+      var m = p[1];
+      if (isNaN(h)) return hhmm;
+      var ampm = h >= 12 ? 'PM' : 'AM';
+      var h12 = h % 12;
+      if (h12 === 0) h12 = 12;
+      return h12 + ':' + m + ' ' + ampm;
+    }
+
+    function timeToMins(hhmm) {
+      var p = String(hhmm || '').split(':');
+      if (p.length < 2) return -1;
+      return (Number(p[0]) * 60) + Number(p[1]);
+    }
+
+    function esc(s) {
+      return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    function apiCall(payload) {
+      return fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload)
+      }).then(function(r) { return r.json(); });
+    }
+
+    function showStatus(id, msg, isErr) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      el.className = 'status-box ' + (isErr ? 'err' : 'ok');
+      el.textContent = msg;
+    }
+
+    function playChime() {
+      if (!state.soundOn) return;
+      try {
+        if (navigator.vibrate) navigator.vibrate([120, 60, 160]);
+        var AC = window.AudioContext || window.webkitAudioContext;
+        if (!AC) return;
+        var ctx = new AC();
+        var osc = ctx.createOscillator();
+        var gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(528, ctx.currentTime);
+        gain.gain.setValueAtTime(0.11, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.65);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.68);
+      } catch (e) {}
+    }
+
+    function getDateOffsetIso(days) {
+      var d = new Date();
+      d.setDate(d.getDate() + days);
+      return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+    }
+
+    // NOTIFICATIONS ENGINE (RESPECTS USER ON/OFF + ACTIVE HOURS)
+    function isInsideNotifHours() {
+      if (!state.notifCfg || !state.notifCfg.enabled) return false;
+      var now = new Date();
+      var curM = now.getHours() * 60 + now.getMinutes();
+      var stM = timeToMins(state.notifCfg.start || '09:00');
+      var enM = timeToMins(state.notifCfg.end || '21:00');
+      return curM >= stM && curM <= enM;
+    }
+
+    function firePatientNotification(title, body) {
+      if (!isInsideNotifHours()) return;
+      playChime();
+      try {
+        if ('Notification' in window && Notification.permission === 'granted') {
+          new Notification(title, { body: body });
+        }
+      } catch (e) {}
+    }
+
+    window.saveNotifSettings = function() {
+      state.notifCfg = {
+        enabled: document.getElementById('notifEnabledSel').value === 'on',
+        start: document.getElementById('notifStartTime').value || '09:00',
+        end: document.getElementById('notifEndTime').value || '21:00'
+      };
+      try { localStorage.setItem(STORAGE_NOTIF, JSON.stringify(state.notifCfg)); } catch (e) {}
+      showStatus('notifSaveMsg', state.notifCfg.enabled
+        ? ('✅ نوٹیفیکیشن آن ہیں (' + fmt12h(state.notifCfg.start) + ' – ' + fmt12h(state.notifCfg.end) + ')۔')
+        : '🔕 نوٹیفیکیشن آف کر دیے گئے ہیں۔', false);
+    };
+
+    window.requestBrowserNotifPerm = function() {
+      if (!('Notification' in window)) { showStatus('notifSaveMsg', 'اس براؤزر میں براؤزر الرٹ دستیاب نہیں۔', true); return; }
+      Notification.requestPermission().then(function(p) {
+        showStatus('notifSaveMsg', p === 'granted' ? '✅ براؤزر نوٹیفیکیشن کی اجازت مل گئی!' : 'اجازت نہیں دی گئی۔', p !== 'granted');
+      });
+    };
+
+    window.manualCheckUpdate = function(userTriggered) {
+      var now = Date.now();
+      if (!userTriggered && (now - state.lastUpdateCheck < 180000)) return;
+      state.lastUpdateCheck = now;
+      apiCall({ action: 'get_patient_lite_html_v150', mualij: state.mualijId })
+        .then(function(res) {
+          if (!res || !res.ok || !res.html) return;
+          var m = res.html.match(/data-alraqi-ver="([^"]+)"/);
+          var remoteVer = m ? m[1] : '';
+          if ((remoteVer && remoteVer !== CURRENT_VER) || userTriggered) {
+            if (remoteVer && remoteVer !== CURRENT_VER) {
+              var b = document.getElementById('autoUpdateBanner');
+              if (b) b.style.display = 'block';
+            }
+            setTimeout(function() {
+              try {
+                if (window.parent && window.parent !== window) window.parent.location.reload();
+                else window.location.reload();
+              } catch (e) { window.location.reload(); }
+            }, remoteVer && remoteVer !== CURRENT_VER ? 900 : 100);
+          }
+        }).catch(function() {});
+    };
+
+    window.openTab = function(tab) {
+      ['home', 'wazaif', 'chat', 'dream', 'appt', 'help'].forEach(function(k) {
+        var pane = document.getElementById('pane_' + k);
+        var bnav = document.getElementById('nav_' + k);
+        var tnav = document.getElementById('tnav_' + k);
+        if (pane) pane.classList.toggle('active', k === tab);
+        if (bnav) bnav.classList.toggle('active', k === tab);
+        if (tnav) tnav.classList.toggle('active', k === tab);
+      });
+      if (tab === 'wazaif') loadAssignedWazaif();
+      if (tab === 'chat' || tab === 'dream') loadPatientThread();
+      if (tab === 'appt') loadPatientAppointments();
+    };
+
+    window.shareAppLink = function() {
+      var url = SHARE_BASE_URL + (state.mualijId && state.mualijId !== 'central' ? ('?m=' + encodeURIComponent(state.mualijId)) : '');
+      var mName = (state.mualijProfile && state.mualijProfile.name && state.mualijId && state.mualijId !== 'central') ? state.mualijProfile.name : 'الراقی — روحانی علاج و رہنمائی';
+      var shareText = 'السلام علیکم!\nروحانی علاج، مسنون وظائف اور ' + mName + ' سے محفوظ رابطے کے لیے الراقی ایپ استعمال کریں:\n' + url;
+      if (navigator.share) {
+        navigator.share({ title: 'الراقی — روحانی علاج و رہنمائی', text: shareText, url: url }).catch(function() {});
+      } else {
+        window.open('https://wa.me/?text=' + encodeURIComponent(shareText), '_blank');
+      }
+    };
+
+    function loadMualijProfile() {
+      var box = document.getElementById('mualijCardContent');
+      var titleEl = document.getElementById('ilajgahCardTitle');
+      var helpActions = document.getElementById('helpContactActions');
+      var finderWrap = document.getElementById('unassignedFinderWrap');
+      var isUnassigned = !state.mualijId || state.mualijId === 'central';
+      if (finderWrap) finderWrap.style.display = isUnassigned ? 'block' : 'none';
+
+      Promise.all([
+        apiCall({ action: 'patient_get_mualij_profile_v150', mualij: state.mualijId }),
+        apiCall({ action: 'mualij_get_schedule_v154', mualij: state.mualijId || 'central' })
+      ]).then(function(arr) {
+        var resP = arr[0];
+        var resS = arr[1];
+        var p = (resP && resP.ok && resP.profile) ? resP.profile : {
+          username: 'central', name: 'الراقی — مرکزِ روحانی علاج', specialty: 'روحانی علاج، مسنون دم و تعبیرِ خواب', phone: '+923447131605', city: 'آن لائن و علاج گاہ مشاورت'
+        };
+        var sc = (resS && resS.ok && resS.schedule) ? resS.schedule : { openTime: '10:00', closeTime: '18:00', prayerBreaks: [], closedDates: {} };
+        state.mualijProfile = p;
+        state.schedule = sc;
+
+        var todayIso = getDateOffsetIso(0);
+        var todayClosed = sc && sc.closedDates && sc.closedDates[todayIso];
+        var clBanner = document.getElementById('todayClosureBanner');
+        if (clBanner) {
+          if (todayClosed) {
+            clBanner.style.display = 'block';
+            clBanner.innerHTML = '📢 اطلاع: آج علاج گاہ بند ہے' + (todayClosed.note ? (' — ' + esc(todayClosed.note)) : '');
+          } else { clBanner.style.display = 'none'; }
+        }
+
+        var cardHeading = isUnassigned ? '🩺 الراقی — مرکزِ روحانی علاج' : ('🩺 ' + esc(p.name.replace(/علاج گاہ/g, 'علاج گاہ')) + ' — علاج گاہ');
+        if (titleEl) titleEl.innerHTML = '<span>' + cardHeading + '</span>';
+
+        var enHours = fmt12h(sc.openTime || '10:00') + ' – ' + fmt12h(sc.closeTime || '18:00');
+        var cityLabel = (sc && sc.city) || p.city || 'آن لائن و علاج گاہ مشاورت';
+        var specLabel = (sc && sc.specialty) || p.specialty || 'روحانی علاج و رہنمائی';
+        var waNum = String(p.phone || '').replace(/[^0-9]/g, '');
+        var waLink = waNum ? ('https://wa.me/' + waNum) : '';
+        var telLink = p.phone ? ('tel:' + p.phone) : '';
+
+        if (box) {
+          box.innerHTML =
+            '<div class="muted">' + esc(specLabel) + '</div>' +
+            '<div style="margin-top:6px;font-size:0.9em;color:#334155;">⏰ <strong>اوقاتِ علاج گاہ:</strong> <span class="en-time">' + esc(enHours) + '</span></div>' +
+            '<div style="font-size:0.88em;color:#334155;">📍 <strong>مقام / سہولت:</strong> ' + esc(cityLabel.replace(/علاج گاہ/g, 'علاج گاہ')) + '</div>' +
+            '<div class="btn-grid">' +
+              '<button type="button" class="btn btn-primary" onclick="openTab(\'chat\')">💬 ان-ایپ چیٹ</button>' +
+              (waLink ? '<a class="btn btn-outline" target="_blank" rel="noopener" href="' + waLink + '">💬 واٹس ایپ</a>' : '') +
+              (telLink ? '<a class="btn btn-outline" href="' + telLink + '">📞 موبائل کال</a>' : '') +
+              '<button type="button" class="btn btn-accent" onclick="openTab(\'appt\')">📅 وقت لیں</button>' +
+            '</div>';
+        }
+        if (helpActions) {
+          helpActions.innerHTML =
+            '<button type="button" class="btn btn-primary" onclick="openTab(\'chat\')">💬 ان-ایپ چیٹ</button>' +
+            (waLink ? '<a class="btn btn-outline" target="_blank" rel="noopener" href="' + waLink + '">💬 واٹس ایپ</a>' : '') +
+            (telLink ? '<a class="btn btn-outline" href="' + telLink + '">📞 موبائل کال</a>' : '') +
+            '<button type="button" class="btn btn-accent" onclick="shareAppLink()">📤 ایپ شیئر کریں</button>';
+        }
+      }).catch(function() {});
+    }
+
+    window.linkByIlajgahCode = function() {
+      var code = (document.getElementById('ilajgahCodeInput').value || '').trim();
+      if (!code) return;
+      state.mualijId = code;
+      try { localStorage.setItem(STORAGE_MUALIJ, code); } catch (e) {}
+      loadMualijProfile();
+    };
+
+    window.toggleCityFinder = function() {
+      var box = document.getElementById('cityFinderBox');
+      if (!box) return;
+      var show = box.style.display === 'none';
+      box.style.display = show ? 'block' : 'none';
+      if (show && !state.approvedMualijeen.length) {
+        document.getElementById('finderListResults').innerHTML = '<div class="muted">⏳ منظور شدہ معالجین لوڈ ہو رہے ہیں...</div>';
+        apiCall({ action: 'patient_list_approved_mualijeen_v154' }).then(function(res) {
+          state.approvedMualijeen = (res && res.ok && res.practitioners) ? res.practitioners : [];
+          filterPractitionerList();
+        });
+      }
+    };
+
+    window.filterPractitionerList = function() {
+      var cQ = ((document.getElementById('finderCityInput') && document.getElementById('finderCityInput').value) || '').trim().toLowerCase();
+      var nQ = ((document.getElementById('finderNameInput') && document.getElementById('finderNameInput').value) || '').trim().toLowerCase();
+      var outBox = document.getElementById('finderListResults');
+      if (!outBox) return;
+      var list = state.approvedMualijeen.filter(function(m) {
+        return (!cQ || String(m.city || '').toLowerCase().indexOf(cQ) !== -1) &&
+               (!nQ || String(m.name || '').toLowerCase().indexOf(nQ) !== -1 || String(m.username || '').toLowerCase().indexOf(nQ) !== -1);
+      });
+      if (!list.length) { outBox.innerHTML = '<div class="muted">کوئی منظور شدہ معالج نہیں ملا۔</div>'; return; }
+      outBox.innerHTML = list.map(function(m) {
+        return '<div class="thread-item" style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;">' +
+          '<div><strong>' + esc(m.name) + '</strong><div class="muted" style="font-size:0.84em;">📍 ' + esc(m.city) + '</div></div>' +
+          '<button type="button" class="btn btn-primary btn-sm" onclick="selectFoundPractitioner(\'' + esc(m.username) + '\')">✅ منتخب کریں</button></div>';
+      }).join('');
+    };
+
+    window.selectFoundPractitioner = function(uname) {
+      state.mualijId = uname;
+      try { localStorage.setItem(STORAGE_MUALIJ, uname); } catch (e) {}
+      loadMualijProfile();
+    };
+
+    function renderPatientAuth() {
+      var badge = document.getElementById('ptAuthBadge');
+      var loggedBox = document.getElementById('ptLoggedInBox');
+      var formBox = document.getElementById('ptLoginFormBox');
+      var info = document.getElementById('ptLoggedInInfo');
+      if (state.patient && state.patient.name) {
+        if (badge) badge.textContent = '✅ تصدیق شدہ سائل';
+        if (loggedBox) loggedBox.style.display = 'block';
+        if (formBox) formBox.style.display = 'none';
+        if (info) info.innerHTML = '<strong>سائل کا نام:</strong> ' + esc(state.patient.name) + '<br/><strong>رابطہ:</strong> ' + esc(state.patient.contact);
+        if (!state.mualijId || state.mualijId === 'central') {
+          apiCall({ action: 'patient_check_assigned_mualij_v154', patientContact: state.patient.contact }).then(function(r) {
+            if (r && r.ok && r.assignedMualij) {
+              state.mualijId = r.assignedMualij;
+              try { localStorage.setItem(STORAGE_MUALIJ, r.assignedMualij); } catch (e) {}
+              loadMualijProfile();
+            }
+          }).catch(function() {});
+        }
+        loadPatientThread();
+      } else {
+        if (badge) badge.textContent = '';
+        if (loggedBox) loggedBox.style.display = 'none';
+        if (formBox) formBox.style.display = 'block';
+      }
+    }
+
+    window.startPatientOtp = function() {
+      var name = (document.getElementById('ptName').value || '').trim();
+      var contact = (document.getElementById('ptContact').value || '').trim();
+      if (!name || !contact) { showStatus('ptLoginMsg', 'براہِ کرم اپنا نام اور موبائل نمبر یا ای میل درج کریں۔', true); return; }
+      showStatus('ptLoginMsg', '⏳ تصدیقی کارروائی جاری ہے...', false);
+      apiCall({ action: 'patient_request_otp_v150', name: name, contact: contact, mualij: state.mualijId }).then(function(res) {
+        if (res && res.ok && res.instantVerified) {
+          state.patient = { name: name, contact: contact, token: res.token || '' };
+          try { localStorage.setItem(STORAGE_SESSION, JSON.stringify(state.patient)); } catch (e) {}
+          renderPatientAuth();
+          showStatus('ptLoginMsg', '✅ خوش آمدید! آپ کا محفوظ سیشن فعال ہو گیا۔', false);
+        } else if (res && res.ok) {
+          document.getElementById('ptOtpRow').style.display = 'block';
+          showStatus('ptLoginMsg', '📧 آپ کی ای میل پر ۶ ہندسوں کا تصدیقی کوڈ بھیج دیا گیا ہے۔', false);
+        } else {
+          showStatus('ptLoginMsg', (res && res.error) || 'تصدیق میں مسئلہ آیا۔', true);
+        }
+      }).catch(function() { showStatus('ptLoginMsg', 'انٹرنیٹ کنکشن چیک کریں۔', true); });
+    };
+
+    window.verifyPatientOtp = function() {
+      var name = (document.getElementById('ptName').value || '').trim();
+      var contact = (document.getElementById('ptContact').value || '').trim();
+      var otp = (document.getElementById('ptOtpInput').value || '').trim();
+      apiCall({ action: 'patient_verify_otp_v150', name: name, contact: contact, otp: otp }).then(function(res) {
+        if (res && res.ok) {
+          state.patient = { name: name, contact: contact, token: res.token || '' };
+          try { localStorage.setItem(STORAGE_SESSION, JSON.stringify(state.patient)); } catch (e) {}
+          renderPatientAuth();
+        } else { showStatus('ptLoginMsg', (res && res.error) || 'کوڈ درست نہیں ہے۔', true); }
+      });
+    };
+
+    window.logoutPatient = function() {
+      state.patient = null;
+      try { localStorage.removeItem(STORAGE_SESSION); } catch (e) {}
+      renderPatientAuth();
+    };
+
+    // WAZAIF + OPTIONAL REPEAT-COUNT MP3 AUDIO PLAYER
+    window.changeZoom = function(delta) {
+      state.zoom = Math.min(1.85, Math.max(0.85, Number((state.zoom + delta).toFixed(2))));
+      document.documentElement.style.setProperty('--wazaif-zoom', String(state.zoom));
+    };
+
+    window.toggleSound = function() {
+      state.soundOn = !state.soundOn;
+      var btn = document.getElementById('soundToggleBtn');
+      if (btn) btn.textContent = state.soundOn ? '🔔 آواز: آن' : '🔕 آواز: بند';
+    };
+
+    window.switchWazaifTab = function(tab) {
+      state.activeWazaifTab = tab;
+      ['assigned', 'basics', 'manzil'].forEach(function(k) {
+        var b = document.getElementById('wTab_' + k);
+        if (b) b.classList.toggle('active', k === tab);
+      });
+      renderWazaif();
+    };
+
+    window.selectAssignedFolder = function(idx) { state.activeFolderIdx = idx; renderWazaif(); };
+    window.toggleDuaItem = function(id) { state.openDuaId = (state.openDuaId === id) ? '' : id; renderWazaif(); };
+
+    function getRemainingCount(id, defCnt) {
+      return (typeof state.tasbeeh[id] === 'number') ? state.tasbeeh[id] : defCnt;
+    }
+
+    window.tapTasbeeh = function(id, defCnt) {
+      var cur = getRemainingCount(id, defCnt);
+      if (cur > 0) {
+        cur--;
+        state.tasbeeh[id] = cur;
+        try { localStorage.setItem(STORAGE_TASBEEH, JSON.stringify(state.tasbeeh)); } catch (e) {}
+        if (cur === 0) playChime();
+        else if (navigator.vibrate) navigator.vibrate(25);
+      } else {
+        state.tasbeeh[id] = defCnt;
+        try { localStorage.setItem(STORAGE_TASBEEH, JSON.stringify(state.tasbeeh)); } catch (e) {}
+      }
+      renderWazaif();
+    };
+
+    window.playAssignedMp3WithRepeat = function(id, url) {
+      if (state.activeAudioObj) {
+        state.activeAudioObj.pause();
+        state.activeAudioObj = null;
+        if (state.activeAudioId === id) {
+          state.activeAudioId = '';
+          state.audioRemainingLoops = 0;
+          renderWazaif();
+          return;
+        }
+      }
+      var sel = document.getElementById('repSel_' + id);
+      var cus = document.getElementById('repCus_' + id);
+      var target = 1;
+      if (sel) {
+        if (sel.value === 'inf') target = 999999;
+        else if (sel.value === 'custom') target = Math.max(1, Number((cus && cus.value) || 7));
+        else target = Math.max(1, Number(sel.value) || 1);
+      }
+      state.activeAudioId = id;
+      state.audioRemainingLoops = target;
+      var aud = new Audio(url);
+      state.activeAudioObj = aud;
+      aud.onended = function() {
+        state.audioRemainingLoops = state.audioRemainingLoops - 1;
+        if (state.audioRemainingLoops > 0) {
+          aud.currentTime = 0;
+          aud.play().catch(function() {});
+          renderWazaif();
+        } else {
+          state.activeAudioId = '';
+          state.activeAudioObj = null;
+          playChime();
+          renderWazaif();
+        }
+      };
+      aud.onerror = function() {
+        state.activeAudioId = '';
+        state.activeAudioObj = null;
+        alert('آڈیو لوڈ نہیں ہو سکی، براہِ کرم انٹرنیٹ کنکشن چیک کریں۔');
+        renderWazaif();
+      };
+      aud.play().catch(function() {});
+      renderWazaif();
+    };
+
+    window.onRepeatSelChange = function(id) {
+      var sel = document.getElementById('repSel_' + id);
+      var cus = document.getElementById('repCus_' + id);
+      if (cus) cus.style.display = (sel && sel.value === 'custom') ? 'block' : 'none';
+    };
+
+    function loadAssignedWazaif() {
+      if (!state.patient || !state.patient.contact) { state.assignedPlan = null; renderWazaif(); return; }
+      apiCall({ action: 'patient_get_assigned_wazaif_v154', mualij: state.mualijId || 'central', patientContact: state.patient.contact })
+        .then(function(res) { state.assignedPlan = (res && res.ok) ? res.plan : null; renderWazaif(); })
+        .catch(function() { renderWazaif(); });
+    }
+
+    function renderDuaAccordion(list) {
+      return list.map(function(it) {
+        var isOpen = (state.openDuaId === it.id);
+        var cnt = Number(it.count) || 1;
+        var rem = getRemainingCount(it.id, cnt);
+        var isDone = rem === 0;
+        var isPlaying = state.activeAudioId === it.id;
+        var audioUi = '';
+        if (it.audioUrl) {
+          audioUi =
+            '<div class="audio-repeat-box">' +
+              '<div style="font-weight:700;color:var(--primary-900);margin-bottom:6px;">🎧 قاری صاحب کی تلاوت (اختیاری تکرار کے ساتھ)</div>' +
+              '<div class="grid-2">' +
+                '<select id="repSel_' + esc(it.id) + '" class="select" onchange="onRepeatSelChange(\'' + esc(it.id) + '\')">' +
+                  '<option value="1">🔁 1 بار سنیں</option>' +
+                  '<option value="3">🔁 3 بار دہرائیں</option>' +
+                  '<option value="7">🔁 7 بار دہرائیں</option>' +
+                  '<option value="20">🔁 20 بار دہرائیں</option>' +
+                  '<option value="custom">🔁 اپنی مرضی کی تعداد...</option>' +
+                  '<option value="inf">♾️ مسلسل دہراتے رہیں</option>' +
+                '</select>' +
+                '<button type="button" class="btn ' + (isPlaying ? 'btn-danger' : 'btn-primary') + '" onclick="playAssignedMp3WithRepeat(\'' + esc(it.id) + '\',\'' + esc(it.audioUrl) + '\')">' +
+                  (isPlaying ? ('⏹️ روکیں (باقی: ' + (state.audioRemainingLoops > 9999 ? '♾️' : state.audioRemainingLoops) + ')') : '▶️ تلاوت چلائیں') +
+                '</button>' +
+              '</div>' +
+              '<input type="number" id="repCus_' + esc(it.id) + '" class="input" min="1" max="500" placeholder="تکرار کی تعداد لکھیں (مثلاً 40)" style="display:none;margin-top:6px;" />' +
+            '</div>';
+        }
+        return '<div class="dua-index-item">' +
+          '<button type="button" class="dua-index-btn" onclick="toggleDuaItem(\'' + esc(it.id) + '\')">' +
+            '<span>' + esc(it.title) + (it.audioUrl ? ' 🎧' : '') + '</span>' +
+            '<span style="font-size:0.8em;color:var(--primary-700);">' + (isDone ? '✅' : cnt + ' بار') + ' ' + (isOpen ? '▲' : '▼') + '</span>' +
+          '</button>' +
+          (isOpen ? (
+            '<div class="dua-body">' +
+              '<div class="arabic-text">' + esc(it.arabic) + '</div>' +
+              '<div class="btn-grid">' +
+                '<button type="button" class="tasbeeh-btn ' + (isDone ? 'done' : '') + '" onclick="tapTasbeeh(\'' + esc(it.id) + '\',' + cnt + ')">' +
+                  (isDone ? '✅ مکمل (دوبارہ شروع)' : '📿 باقی: ' + rem + ' — ٹیپ کریں') +
+                '</button>' +
+              '</div>' +
+              audioUi +
+            '</div>'
+          ) : '') +
+        '</div>';
+      }).join('');
+    }
+
+    function renderWazaif() {
+      var box = document.getElementById('wazaifListContainer');
+      if (!box) return;
+      if (state.activeWazaifTab === 'manzil') {
+        box.innerHTML = '<div class="dua-index-item" style="padding:18px;text-align:center;"><div style="font-size:1.12em;font-weight:700;color:var(--primary-900);margin-bottom:8px;">📖 مکمل منزل — ۲۰ صفحات (انتہائی بڑا و واضح خط)</div><p class="muted">بزرگوں اور واضح تلاوت کے لیے خاص بڑے خط میں مکمل منزل۔</p><a class="btn btn-primary" target="_blank" rel="noopener" href="' + MANZIL_DRIVE_URL + '">📖 مکمل منزل کھولیں (بڑا خط)</a></div>';
+        return;
+      }
+      if (state.activeWazaifTab === 'basics') {
+        box.innerHTML = renderDuaAccordion(BASIC_MASNOON_ITEMS);
+        return;
+      }
+      if (!state.patient || !state.patient.contact) {
+        box.innerHTML = '<div class="info-chip" style="text-align:center;">📂 اپنے معالج کے مقرر کردہ ذاتی وظائف فولڈرز دیکھنے کے لیے پہلے «ہوم پیج» پر لاگ اِن کریں۔</div>';
+        return;
+      }
+      var plan = state.assignedPlan;
+      if (!plan || !plan.folders || !plan.folders.length) {
+        box.innerHTML = '<div class="info-chip" style="text-align:center;">⏳ آپ کے معالج کی طرف سے ابھی کوئی خصوصی وظیفہ فولڈر تفویض نہیں کیا گیا۔ تب تک آپ «🌿 عام مسنون اذکار» یا «📖 مکمل منزل» کی تلاوت جاری رکھ سکتے ہیں۔</div>';
+        return;
+      }
+      var folders = plan.folders;
+      if (state.activeFolderIdx >= folders.length) state.activeFolderIdx = 0;
+      var html = plan.generalNote ? ('<div class="info-chip" style="margin-bottom:12px;">📌 <strong>معالج کی خصوصی ہدایت:</strong> ' + esc(plan.generalNote) + '</div>') : '';
+      html += '<div class="folder-grid no-print">' + folders.map(function(fl, idx) {
+        return '<button type="button" class="folder-card ' + (idx === state.activeFolderIdx ? 'active' : '') + '" onclick="selectAssignedFolder(' + idx + ')"><div>📂 ' + esc(fl.folderTitle) + '</div><div style="font-size:0.78em;opacity:0.85;margin-top:4px;">' + (fl.items ? fl.items.length : 0) + ' وظائف</div></button>';
+      }).join('') + '</div>';
+      var curFl = folders[state.activeFolderIdx];
+      if (curFl && curFl.items && curFl.items.length) {
+        html += '<div style="margin-bottom:8px;font-weight:700;color:var(--primary-900);">📂 ' + esc(curFl.folderTitle) + '</div>' + renderDuaAccordion(curFl.items);
+      }
+      html += '<div class="btn-grid no-print"><button type="button" class="btn btn-outline" onclick="window.print()">🖨️ وظیفہ کارڈ پرنٹ / محفوظ کریں</button></div>';
+      box.innerHTML = html;
+    }
+
+    // CHAT & DREAMS
+    window.toggleUrduVoice = function() {
+      var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+      var btn = document.getElementById('ptVoiceBtn');
+      if (!SR) { showStatus('ptCaseMsg', 'وائس ٹائپنگ دستیاب نہیں۔', true); return; }
+      if (state.recognition) { state.recognition.stop(); state.recognition = null; if (btn) btn.textContent = '🗣️ بول کر لکھیں (اردو)'; return; }
+      var rec = new SR();
+      rec.lang = 'ur-PK'; rec.continuous = true; rec.interimResults = false;
+      rec.onresult = function(ev) {
+        var ta = document.getElementById('ptDreamText');
+        for (var i = ev.resultIndex; i < ev.results.length; i++) if (ev.results[i].isFinal) ta.value = (ta.value ? ta.value + ' ' : '') + ev.results[i][0].transcript;
+      };
+      rec.onend = function() { state.recognition = null; if (btn) btn.textContent = '🗣️ بول کر لکھیں (اردو)'; };
+      state.recognition = rec; rec.start();
+      if (btn) btn.textContent = '⏹️ بولنا بند کریں';
+    };
+
+    window.toggleAudioRecord = function() {
+      var btn = document.getElementById('ptChatRecBtn');
+      if (state.mediaRecorder && state.mediaRecorder.state === 'recording') {
+        state.mediaRecorder.stop();
+        if (btn) { btn.textContent = '🎙️ وائس میسج ریکارڈ کریں'; btn.className = 'btn btn-outline'; }
+        return;
+      }
+      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) { showStatus('ptChatMsg', 'آڈیو ریکارڈنگ دستیاب نہیں۔', true); return; }
+      navigator.mediaDevices.getUserMedia({ audio: true }).then(function(stream) {
+        state.recordedChunks = [];
+        var mr = new MediaRecorder(stream);
+        state.mediaRecorder = mr;
+        mr.ondataavailable = function(e) { if (e.data && e.data.size > 0) state.recordedChunks.push(e.data); };
+        mr.onstop = function() {
+          stream.getTracks().forEach(function(t) { t.stop(); });
+          var blob = new Blob(state.recordedChunks, { type: mr.mimeType || 'audio/webm' });
+          state.recordedAudioMime = blob.type || 'audio/webm';
+          var reader = new FileReader();
+          reader.onloadend = function() {
+            state.recordedAudioB64 = String(reader.result || '');
+            document.getElementById('chatVoicePreviewAudio').src = state.recordedAudioB64;
+            document.getElementById('chatVoicePreviewWrap').style.display = 'block';
+          };
+          reader.readAsDataURL(blob);
+        };
+        mr.start();
+        if (btn) { btn.textContent = '⏹️ ریکارڈنگ روکیں'; btn.className = 'btn btn-danger'; }
+      }).catch(function() { showStatus('ptChatMsg', 'مائیکروفون کی اجازت درکار ہے۔', true); });
+    };
+
+    window.clearRecordedVoice = function() {
+      state.recordedAudioB64 = '';
+      var w = document.getElementById('chatVoicePreviewWrap');
+      if (w) w.style.display = 'none';
+    };
+
+    window.submitInAppChat = function() {
+      if (!state.patient || !state.patient.contact) { showStatus('ptChatMsg', 'پہلے «ہوم پیج» پر لاگ اِن کریں۔', true); return; }
+      var txt = (document.getElementById('ptChatText').value || '').trim();
+      if (!txt && !state.recordedAudioB64) { showStatus('ptChatMsg', 'پیغام لکھیں یا وائس میسج ریکارڈ کریں۔', true); return; }
+      showStatus('ptChatMsg', '⏳ پیغام ارسال کیا جا رہا ہے...', false);
+      apiCall({
+        action: 'patient_send_msg_v154', mualij: state.mualijId || 'central',
+        patientName: state.patient.name, patientContact: state.patient.contact,
+        msgType: state.recordedAudioB64 && !txt ? 'وائس میسج' : 'نجی پیغام',
+        text: txt, audioBase64: state.recordedAudioB64, audioMime: state.recordedAudioMime,
+        autoTickedSymptoms: detectQuietIntakeSymptoms(txt)
+      }).then(function(res) {
+        if (res && res.ok) {
+          document.getElementById('ptChatText').value = '';
+          clearRecordedVoice();
+          showStatus('ptChatMsg', '✅ پیغام آپ کے معالج کو موصول ہو گیا ہے۔', false);
+          loadPatientThread();
+        } else showStatus('ptChatMsg', (res && res.error) || 'ارسال میں مسئلہ آیا۔', true);
+      });
+    };
+
+    window.submitDreamOrSymptoms = function() {
+      if (!state.patient || !state.patient.contact) { showStatus('ptCaseMsg', 'پہلے «ہوم پیج» پر لاگ اِن کریں۔', true); return; }
+      var txt = (document.getElementById('ptDreamText').value || '').trim();
+      if (!txt) { showStatus('ptCaseMsg', 'تفصیل تحریر کریں۔', true); return; }
+      showStatus('ptCaseMsg', '⏳ معالج کو ارسال کیا جا رہا ہے...', false);
+      apiCall({
+        action: 'patient_send_msg_v154', mualij: state.mualijId || 'central',
+        patientName: state.patient.name, patientContact: state.patient.contact,
+        msgType: document.getElementById('ptCaseType').value, text: txt,
+        autoTickedSymptoms: detectQuietIntakeSymptoms(txt)
+      }).then(function(res) {
+        if (res && res.ok) {
+          document.getElementById('ptDreamText').value = '';
+          showStatus('ptCaseMsg', '✅ الحمدللہ! معالج کو موصول ہو گیا ہے؛ معالج کی تصدیق کے بعد جواب نیچے ظاہر ہو گا۔', false);
+          loadPatientThread();
+        } else showStatus('ptCaseMsg', (res && res.error) || 'ارسال میں مسئلہ آیا۔', true);
+      });
+    };
+
+    window.loadPatientThread = function() {
+      if (!state.patient || !state.patient.contact) return;
+      apiCall({ action: 'get_patient_thread_v154', mualij: state.mualijId || 'central', patientContact: state.patient.contact }).then(function(res) {
+        var items = (res && res.ok && res.items) ? res.items : [];
+        var repliedCount = items.filter(function(x) { return !!x.replyText; }).length;
+        var prevSeen = Number(localStorage.getItem(STORAGE_SEEN_REPLIES) || '0');
+        var unread = Math.max(0, repliedCount - prevSeen);
+        ['chatBadgeTop', 'chatBadgeBot'].forEach(function(bid) {
+          var el = document.getElementById(bid);
+          if (el) { el.style.display = unread > 0 ? 'inline-block' : 'none'; el.textContent = String(unread); }
+        });
+        if (unread > 0) firePatientNotification('الراقی — معالج کا نیا جواب', 'آپ کے معالج نے نئی تعبیر / جواب ارسال فرمایا ہے۔');
+        if (document.getElementById('pane_chat').classList.contains('active') || document.getElementById('pane_dream').classList.contains('active')) {
+          try { localStorage.setItem(STORAGE_SEEN_REPLIES, String(repliedCount)); } catch (e) {}
+        }
+        var renderList = function(arr) {
+          if (!arr.length) return '<div class="muted">ابھی کوئی ریکارڈ موجود نہیں۔</div>';
+          return arr.map(function(it) {
+            return '<div class="thread-item">' +
+              '<div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:0.84em;color:var(--primary-700);font-weight:700;"><span>' + esc(it.msgType) + '</span><span class="en-time" style="font-size:0.8rem;">' + esc(it.ts) + '</span></div>' +
+              (it.text ? '<div style="margin-top:6px;white-space:pre-line;">' + esc(it.text) + '</div>' : '') +
+              (it.audioUrl ? '<div style="margin-top:6px;"><a class="btn btn-soft btn-sm" target="_blank" rel="noopener" href="' + esc(it.audioUrl) + '">🎙️ وائس میسج سنیں</a></div>' : '') +
+              (it.replyText
+                ? '<div class="reply-box"><strong>✅ ' + esc(it.replyCategory || 'معالج کا تصدیق شدہ جواب') + '</strong><div style="margin-top:4px;white-space:pre-line;">' + esc(it.replyText) + '</div></div>'
+                : '<div style="margin-top:8px;"><span class="badge-pending">⏳ معالج کے جائزے کے لیے زیرِ التواء</span></div>') +
+            '</div>';
+          }).join('');
+        };
+        var chatItems = items.filter(function(x) { return x.msgType === 'نجی پیغام' || x.msgType === 'وائس میسج'; });
+        var dreamItems = items.filter(function(x) { return x.msgType !== 'نجی پیغام' && x.msgType !== 'وائس میسج'; });
+        document.getElementById('patientChatThreadBox').innerHTML = renderList(chatItems.length ? chatItems : items);
+        document.getElementById('patientDreamThreadBox').innerHTML = renderList(dreamItems);
+      }).catch(function() {});
+    };
+
+    // MULTI-DAY APPOINTMENTS + RED OVERLAP GUARD
+    window.setQuickApptDate = function(offsetDays) {
+      var el = document.getElementById('apptDate');
+      if (el) { el.value = getDateOffsetIso(offsetDays); loadPatientAppointments(); }
+    };
+
+    window.onDurationSelectChange = function() {
+      var sel = document.getElementById('apptDuration');
+      var cus = document.getElementById('apptCustomMins');
+      if (cus) cus.style.display = (sel && sel.value === 'custom') ? 'block' : 'none';
+    };
+
+    window.loadPatientAppointments = function() {
+      var dateVal = document.getElementById('apptDate').value;
+      var pContact = (state.patient && state.patient.contact) || '';
+      apiCall({ action: 'patient_get_appts_v154', mualij: state.mualijId || 'central', date: dateVal, patientContact: pContact }).then(function(res) {
+        if (!res || !res.ok) return;
+        var sc = res.schedule || {};
+        var enHours = fmt12h(sc.openTime || '10:00') + ' – ' + fmt12h(sc.closeTime || '18:00');
+        var breaksHtml = (sc.prayerBreaks || []).map(function(b) {
+          return esc(b.label) + ' (<span class="en-time" style="font-size:0.84rem;">' + fmt12h(b.start) + ' – ' + fmt12h(b.end) + '</span>)';
+        }).join(' • ');
+        document.getElementById('apptScheduleInfo').innerHTML =
+          '⏰ <strong>علاج گاہ کے اوقات:</strong> <span class="en-time">' + esc(enHours) + '</span>' +
+          (breaksHtml ? ('<br/>🕌 <strong>نماز کے وقفے:</strong> ' + breaksHtml) : '');
+
+        var clBox = document.getElementById('apptClosureNotice');
+        if (res.closure) {
+          clBox.style.display = 'block';
+          clBox.innerHTML = '📢 اس تاریخ (<span class="en-time">' + esc(dateVal) + '</span>) کو علاج گاہ بند ہے' + (res.closure.note ? (' — ' + esc(res.closure.note)) : '');
+        } else clBox.style.display = 'none';
+
+        var busy = res.approvedBusy || [];
+        state.approvedBusyList = busy;
+        document.getElementById('approvedBusyBox').innerHTML = busy.length
+          ? ('<div style="font-weight:700;color:#991b1b;margin-bottom:4px;">🔴 اس تاریخ پر پہلے سے بک شدہ / ریزروڈ اوقات:</div>' +
+             busy.map(function(b) { return '<span class="busy-pill">🔴 ' + fmt12h(b.startTime) + ' (' + b.minutes + ' min)</span>'; }).join(''))
+          : '<div class="muted">🟢 اس تاریخ پر ابھی کوئی ریزروڈ وقت نہیں ہے۔</div>';
+
+        var reqs = res.myRequests || [];
+        document.getElementById('myApptListBox').innerHTML = !reqs.length
+          ? '<div class="muted">آپ کی کوئی اپائنٹمنٹ درخواست موجود نہیں۔</div>'
+          : reqs.map(function(r) {
+              var badge = r.status === 'APPROVED' ? '<span class="badge-ok">✅ منظور شدہ</span>' : (r.status === 'DECLINED' ? '<span class="badge-no">❌ معذرت</span>' : '<span class="badge-pending">⏳ زیرِ منظوری</span>');
+              var tSum = r.status === 'APPROVED'
+                ? ('<strong>حتمی منظور شدہ وقت:</strong> <span class="en-time">' + fmt12h(r.approvedStart) + ' (' + r.approvedMinutes + ' min)</span>')
+                : ('<strong>درخواست کردہ وقت:</strong> <span class="en-time">' + fmt12h(r.requestedStart) + ' (' + r.requestedMinutes + ' min)</span>');
+              return '<div class="thread-item"><div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;"><strong class="en-time">📅 ' + esc(r.date) + '</strong>' + badge + '</div><div style="margin-top:6px;">' + tSum + ' — ' + esc(r.mode) + '</div>' + (r.mualijNote ? '<div class="reply-box"><strong>معالج کا پیغام:</strong> ' + esc(r.mualijNote) + '</div>' : '') + '</div>';
+            }).join('');
+      }).catch(function() {});
+    };
+
+    window.submitFlexApptRequest = function() {
+      if (!state.patient || !state.patient.contact) { showStatus('apptMsg', 'پہلے «ہوم پیج» پر لاگ اِن کریں۔', true); return; }
+      var dateVal = document.getElementById('apptDate').value;
+      var startVal = document.getElementById('apptStartTime').value;
+      var durSel = document.getElementById('apptDuration').value;
+      var durMins = durSel === 'custom' ? Number(document.getElementById('apptCustomMins').value || 30) : Number(durSel);
+
+      // Overlap guard against red/reserved times
+      var reqStart = timeToMins(startVal);
+      var reqEnd = reqStart + durMins;
+      for (var i = 0; i < state.approvedBusyList.length; i++) {
+        var b = state.approvedBusyList[i];
+        var bS = timeToMins(b.startTime);
+        var bE = bS + (Number(b.minutes) || 30);
+        if (reqStart < bE && reqEnd > bS) {
+          showStatus('apptMsg', '🔴 معذرت! یہ وقت (' + fmt12h(b.startTime) + ') پہلے ہی ریزروڈ ہے۔ براہِ کرم کوئی اور وقت یا «کل / اگلی تاریخ» منتخب کریں۔', true);
+          return;
+        }
+      }
+
+      showStatus('apptMsg', '⏳ آپ کی درخواست ارسال کی جا رہی ہے...', false);
+      apiCall({
+        action: 'patient_request_appt_v154', mualij: state.mualijId || 'central',
+        date: dateVal, startTime: startVal, durationMinutes: durMins,
+        mode: document.getElementById('apptMode').value, note: (document.getElementById('apptNote').value || '').trim(),
+        patientName: state.patient.name, patientContact: state.patient.contact
+      }).then(function(res) {
+        if (res && res.ok) {
+          document.getElementById('apptNote').value = '';
+          showStatus('apptMsg', '✅ درخواست معالج کو موصول ہو گئی ہے — معالج کی منظوری کے بعد وقت فکس ہو جائے گا۔', false);
+          loadPatientAppointments();
+        } else showStatus('apptMsg', (res && res.error) || 'درخواست ارسال نہیں ہو سکی۔', true);
+      });
+    };
+
+    window.triggerPatientInstall = function() {
+      if (window.parent && window.parent !== window) { window.parent.postMessage({ type: 'ALRAQI_INSTALL_APP' }, '*'); return; }
+      if (state.deferredInstallPrompt) {
+        state.deferredInstallPrompt.prompt();
+        state.deferredInstallPrompt.userChoice.finally(function() { state.deferredInstallPrompt = null; });
+      } else alert('کروم مینو (⋮) سے "Install app" منتخب کریں۔');
+    };
+
+    function init() {
+      if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(function() {});
+      window.addEventListener('beforeinstallprompt', function(e) { e.preventDefault(); state.deferredInstallPrompt = e; });
+      document.addEventListener('visibilitychange', function() { if (document.visibilityState === 'visible') manualCheckUpdate(false); });
+      var params = new URLSearchParams(window.location.search);
+      var m = params.get('m') || params.get('mualij') || '';
+      try {
+        if (m) localStorage.setItem(STORAGE_MUALIJ, m); else m = localStorage.getItem(STORAGE_MUALIJ) || '';
+        state.mualijId = m;
+        var s = localStorage.getItem(STORAGE_SESSION); if (s) state.patient = JSON.parse(s);
+        var t = localStorage.getItem(STORAGE_TASBEEH); if (t) state.tasbeeh = JSON.parse(t);
+        var n = localStorage.getItem(STORAGE_NOTIF); if (n) state.notifCfg = JSON.parse(n);
+      } catch (e) {}
+      document.getElementById('notifEnabledSel').value = state.notifCfg.enabled ? 'on' : 'off';
+      document.getElementById('notifStartTime').value = state.notifCfg.start || '09:00';
+      document.getElementById('notifEndTime').value = state.notifCfg.end || '21:00';
+      document.getElementById('apptDate').value = getDateOffsetIso(0);
+      renderPatientAuth();
+      renderWazaif();
+      loadMualijProfile();
+      setInterval(function() { if (state.patient && state.patient.contact) loadPatientThread(); }, 90000);
+    }
+
+    init();
+  })();
+  </script>
+
+<script id="alraqi-mod-08_v151_global_i18n_engine">
+// Module 08: AL-RAQI Unified Single-Codebase 4-Language Engine (ur / ar / en-GB / en-US)
+// Every feature & fix lives in ONE codebase and automatically reflects across all 4 languages.
+(function() {
+  'use strict';
+
+  var ARAB_CC = ['SA','AE','QA','KW','OM','BH','EG','JO','IQ','YE','SY','LB','PS','SD','LY','TN','DZ','MA','MR','SO','DJ','KM'];
+  var UK_CC = ['GB','UK','AU','NZ','IE','ZA','SG','MY','HK','MT','CY'];
+  var US_CC = ['US','CA','PH','PR'];
+  var UR_CC = ['PK','IN'];
+
+  // Single Source of Truth Dictionary: Urdu source -> Arabic, UK English (en-GB), US English (en-US)
+  var DICT_V156 = [
+    ['الراقی — روحانی علاج و رہنمائی', 'الراقي — الرقية الشرعية والعلاج', 'Al-Raqi — Ruqyah & Spiritual Guidance Centre', 'Al-Raqi — Ruqyah & Spiritual Guidance Center'],
+    ['روحانی علاج و رہنمائی', 'الرقية الشرعية والعلاج الروحاني', 'Ruqyah & Spiritual Guidance Centre', 'Ruqyah & Spiritual Guidance Center'],
+    ['الراقی — مرکزِ روحانی علاج', 'الراقي — مركز العلاج الروحاني', 'Al-Raqi — Spiritual Guidance Centre', 'Al-Raqi — Spiritual Guidance Center'],
+    ['علاج گاہ', 'مركز العلاج', 'Guidance Centre', 'Guidance Center'],
+    ['معالج سے رابطہ', 'التواصل مع المعالج', 'Contact Practitioner', 'Contact Practitioner'],
+    ['اپائنٹمنٹ بکنگ', 'حجز المواعيد', 'Appointments', 'Appointments'],
+    ['ان-ایپ چیٹ', 'المحادثة المباشرة', 'In-App Chat', 'In-App Chat'],
+    ['خواب و علامات', 'الأحلام والأعراض', 'Dreams & Symptoms', 'Dreams & Symptoms'],
+    ['میرے وظائف', 'أذكاري ووظائفي', 'My Wazaif', 'My Wazaif'],
+    ['مسنون بنیادی وظائف', 'الأذكار المسنونة الأساسية', 'Essential Prophetic Supplications', 'Essential Prophetic Supplications'],
+    ['معالج کے مقرر کردہ وظائف', 'الأذكار الموصوفة من المعالج', 'Personalised Practitioner Programme', 'Personalized Practitioner Program'],
+    ['مکمل منزل (۲۰ صفحات)', 'المنزل الكامل (٢٠ صفحة)', 'Complete Manzil (20 Pages)', 'Complete Manzil (20 Pages)'],
+    ['درودِ ابراہیمی (مکمل)', 'الصلاة الإبراهيمية (كاملة)', 'Durood-e-Ibrahimi (Complete)', 'Durood-e-Ibrahimi (Complete)'],
+    ['سورۃ الفاتحہ', 'سورة الفاتحة', 'Surah Al-Fatihah', 'Surah Al-Fatihah'],
+    ['آیت الکرسی', 'آية الكرسي', 'Ayat-ul-Kursi', 'Ayat-ul-Kursi'],
+    ['معوذات (اخلاص، فلق، ناس)', 'المعوذات (الإخلاص، الفلق، الناس)', 'Al-Muawwidhat (Ikhlas, Falaq, Nas)', 'Al-Muawwidhat (Ikhlas, Falaq, Nas)'],
+    ['قاری صاحب کی تلاوت (اختیاری تکرار کے ساتھ)', 'تلاوة القارئ (مع تكرار اختياري)', 'Qari Recitation (Optional Repeat)', 'Qari Recitation (Optional Repeat)'],
+    ['تلاوت چلائیں', 'تشغيل التلاوة', 'Play Recitation', 'Play Recitation'],
+    ['1 بار سنیں', 'استمع مرة واحدة', 'Play 1 time', 'Play 1 time'],
+    ['3 بار دہرائیں', 'تكرار ٣ مرات', 'Repeat 3 times', 'Repeat 3 times'],
+    ['7 بار دہرائیں', 'تكرار ٧ مرات', 'Repeat 7 times', 'Repeat 7 times'],
+    ['20 بار دہرائیں', 'تكرار ٢٠ مرة', 'Repeat 20 times', 'Repeat 20 times'],
+    ['اپنی مرضی کی تعداد...', 'عدد مخصص...', 'Custom repeat count...', 'Custom repeat count...'],
+    ['مسلسل دہراتے رہیں', 'تكرار مستمر', 'Loop continuously', 'Loop continuously'],
+    ['آج', 'اليوم', 'Today', 'Today'],
+    ['کل', 'غداً', 'Tomorrow', 'Tomorrow'],
+    ['پرسوں', 'بعد غد', 'In 2 Days', 'In 2 Days'],
+    ['۳ دن بعد', 'بعد ٣ أيام', 'In 3 Days', 'In 3 Days'],
+    ['دیگر تاریخ', 'تاريخ آخر', 'Other Date', 'Other Date'],
+    ['ریفرش', 'تحديث', 'Refresh', 'Refresh'],
+    ['نوٹیفیکیشن', 'الإشعارات', 'Notifications', 'Notifications'],
+    ['انسٹال ایپ', 'تثبيت التطبيق', 'Install App', 'Install App'],
+    ['علاج گاہ و مریض ایپ', 'مركز العلاج وتطبيق المراجع', 'Guidance Centre & Patient App', 'Guidance Center & Patient App'],
+    ['علاج گاہ و مریض ایپ کنٹرول سینٹر', 'مركز التحكم للمعالج وتطبيق المراجع', 'Practitioner & Patient Control Centre', 'Practitioner & Patient Control Center'],
+    ['اوقات و بندش', 'المواعيد والإغلاق', 'Timings & Closures', 'Timings & Closures'],
+    ['اپائنٹمنٹس', 'المواعيد', 'Appointments', 'Appointments'],
+    ['وظائف و آڈیو', 'الوظائف والصوتيات', 'Wazaif & Audio', 'Wazaif & Audio'],
+    ['سائلین ان باکس', 'رسائل المراجعين', 'Patient Inbox', 'Patient Inbox'],
+    ['ایڈمن سپردگی', 'تعيين المعالج', 'Admin Assign', 'Admin Assign'],
+    ['بند کریں', 'إغلاق', 'Close', 'Close'],
+    ['فون / دستی بکنگ لاک کریں', 'حجز هاتف / يدوي (إغلاق الوقت)', 'Lock Phone / Manual Booking', 'Lock Phone / Manual Booking'],
+    ['وقت لاک کریں', 'إغلاق الوقت', 'Lock Slot', 'Lock Slot'],
+    ['آڈیو تلاوت ساتھ شامل کریں (اختیاری)', 'إرفاق التلاوة الصوتية (اختياري)', 'Attach Audio Recitation (Optional)', 'Attach Audio Recitation (Optional)'],
+    ['تلاوت سنیں', 'استماع', 'Preview Audio', 'Preview Audio'],
+    ['محفوظ کریں', 'حفظ', 'Save', 'Save'],
+    ['ارسال کریں', 'إرسال', 'Send', 'Send'],
+    ['لاگ ان', 'تسجيل الدخول', 'Sign In', 'Sign In'],
+    ['لاگ آؤٹ', 'تسجيل الخروج', 'Sign Out', 'Sign Out'],
+    ['الراقی', 'الراقي', 'Al-Raqi', 'Al-Raqi']
+  ];
+
+  function mapCountryV156(cc) {
+    cc = String(cc || '').toUpperCase().trim();
+    if (UR_CC.indexOf(cc) !== -1) return 'ur';
+    if (ARAB_CC.indexOf(cc) !== -1) return 'ar';
+    if (UK_CC.indexOf(cc) !== -1) return 'en-GB';
+    if (US_CC.indexOf(cc) !== -1) return 'en-US';
+    return 'en-GB';
+  }
+
+  function detectInitLangV156() {
+    try {
+      var saved = localStorage.getItem('ALRAQI_LANG_V1');
+      if (saved && ['ur','ar','en-GB','en-US'].indexOf(saved) !== -1) return saved;
+    } catch (e) {}
+    try {
+      var tz = (Intl.DateTimeFormat().resolvedOptions().timeZone || '').toLowerCase();
+      if (tz.indexOf('karachi') !== -1 || tz.indexOf('kolkata') !== -1) return 'ur';
+      if (tz.indexOf('riyadh') !== -1 || tz.indexOf('dubai') !== -1 || tz.indexOf('qatar') !== -1 || tz.indexOf('kuwait') !== -1 || tz.indexOf('cairo') !== -1 || tz.indexOf('amman') !== -1 || tz.indexOf('baghdad') !== -1) return 'ar';
+      if (tz.indexOf('london') !== -1 || tz.indexOf('sydney') !== -1 || tz.indexOf('melbourne') !== -1 || tz.indexOf('auckland') !== -1 || tz.indexOf('dublin') !== -1) return 'en-GB';
+      if (tz.indexOf('america/') !== -1 || tz.indexOf('new_york') !== -1 || tz.indexOf('chicago') !== -1 || tz.indexOf('los_angeles') !== -1 || tz.indexOf('toronto') !== -1) return 'en-US';
+    } catch (e) {}
+    var nav = (navigator.language || 'ur').toLowerCase();
+    if (nav.indexOf('ar') === 0) return 'ar';
+    if (nav.indexOf('ur') === 0) return 'ur';
+    if (nav === 'en-us' || nav === 'en-ca') return 'en-US';
+    if (nav.indexOf('en') === 0) return 'en-GB';
+    return 'ur';
+  }
+
+  var currentLangV156 = detectInitLangV156();
+  var origTextMapV156 = new WeakMap();
+  var isApplyingV156 = false;
+
+  function langIndexV156(lang) {
+    if (lang === 'ar') return 1;
+    if (lang === 'en-GB') return 2;
+    if (lang === 'en-US') return 3;
+    return 0;
+  }
+
+  function translateStringV156(urText, lang) {
+    if (!urText || lang === 'ur') return urText;
+    var idx = langIndexV156(lang);
+    var out = urText;
+    for (var i = 0; i < DICT_V156.length; i++) {
+      var src = DICT_V156[i][0];
+      if (out.indexOf(src) !== -1) {
+        out = out.split(src).join(DICT_V156[i][idx]);
+      }
+    }
+    return out;
+  }
+
+  function shouldSkipNodeV156(el) {
+    if (!el) return true;
+    var tag = el.tagName;
+    if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'NOSCRIPT' || tag === 'TEXTAREA') return true;
+    if (el.id === 'alraqiLangSelV156' || (el.closest && el.closest('#alraqiLangBarV156'))) return true;
+    // Strictly preserve Quranic Arabic verses & sacred duas untouched!
+    if (el.classList && (el.classList.contains('arabic-text') || el.classList.contains('quran-text') || el.classList.contains('ayat-text'))) return true;
+    if (el.closest && el.closest('.arabic-text, .quran-text, .ayat-text')) return true;
+    return false;
+  }
+
+  function walkAndTranslateV156(rootNode, lang) {
+    if (!rootNode) return;
+    var walker = document.createTreeWalker(rootNode, NodeFilter.SHOW_TEXT, null, false);
+    var node;
+    while ((node = walker.nextNode())) {
+      var parent = node.parentElement;
+      if (!parent || shouldSkipNodeV156(parent)) continue;
+      var val = node.nodeValue;
+      if (!val || !val.trim()) continue;
+      if (!origTextMapV156.has(node)) {
+        origTextMapV156.set(node, val);
+      }
+      var base = origTextMapV156.get(node);
+      var translated = translateStringV156(base, lang);
+      if (node.nodeValue !== translated) node.nodeValue = translated;
+    }
+  }
+
+  window.setAlRaqiLanguageV156 = function(lang, isManual) {
+    if (['ur','ar','en-GB','en-US'].indexOf(lang) === -1) lang = 'ur';
+    currentLangV156 = lang;
+    isApplyingV156 = true;
+    try {
+      localStorage.setItem('ALRAQI_LANG_V1', lang);
+      if (isManual) localStorage.setItem('ALRAQI_LANG_MANUAL_V1', '1');
+    } catch (e) {}
+    var isLtr = (lang === 'en-GB' || lang === 'en-US');
+    document.documentElement.lang = lang;
+    document.documentElement.dir = isLtr ? 'ltr' : 'rtl';
+    if (document.body) {
+      document.body.style.fontFamily = isLtr
+        ? "'Segoe UI', Roboto, Arial, sans-serif"
+        : "'Noto Nastaliq Urdu', 'Segoe UI', Tahoma, sans-serif";
+    }
+    var sel = document.getElementById('alraqiLangSelV156');
+    if (sel && sel.value !== lang) sel.value = lang;
+    walkAndTranslateV156(document.body, lang);
+    if (isManual) {
+      try { window.parent.postMessage({ type: 'ALRAQI_LANG_CHANGED', lang: lang }, '*'); } catch (e) {}
+    }
+    setTimeout(function() { isApplyingV156 = false; }, 60);
+  };
+
+  function injectLangSwitcherV156() {
+    if (document.getElementById('alraqiLangBarV156')) return;
+    var target = document.querySelector('.top-nav-links') || document.querySelector('.topbar-actions') || document.querySelector('.topbar');
+    var wrap = document.createElement('div');
+    wrap.id = 'alraqiLangBarV156';
+    wrap.style.cssText = 'display:inline-flex;align-items:center;gap:4px;z-index:9999;';
+    wrap.innerHTML =
+      '<select id="alraqiLangSelV156" aria-label="Language" onchange="window.setAlRaqiLanguageV156(this.value, true)" ' +
+      'style="padding:5px 9px;border-radius:10px;border:1.5px solid #34d399;background:#022c22;color:#fef08a;font-family:sans-serif;font-weight:700;font-size:0.8rem;cursor:pointer;direction:ltr;">' +
+        '<option value="ur">🌐 اردو (PK)</option>' +
+        '<option value="ar">🌐 العربية</option>' +
+        '<option value="en-GB">🌐 English (UK)</option>' +
+        '<option value="en-US">🌐 English (US)</option>' +
+      '</select>';
+    if (target) {
+      target.appendChild(wrap);
+    } else if (document.body) {
+      wrap.style.position = 'fixed';
+      wrap.style.top = '8px';
+      wrap.style.left = '8px';
+      document.body.appendChild(wrap);
+    }
+    var sel = document.getElementById('alraqiLangSelV156');
+    if (sel) sel.value = currentLangV156;
+  }
+
+  function startObserverV156() {
+    if (!document.body || typeof MutationObserver === 'undefined') return;
+    var mo = new MutationObserver(function(muts) {
+      if (isApplyingV156 || currentLangV156 === 'ur') return;
+      isApplyingV156 = true;
+      for (var i = 0; i < muts.length; i++) {
+        var added = muts[i].addedNodes;
+        for (var j = 0; j < added.length; j++) {
+          if (added[j].nodeType === 1) walkAndTranslateV156(added[j], currentLangV156);
+        }
+      }
+      isApplyingV156 = false;
+    });
+    mo.observe(document.body, { childList: true, subtree: true });
+  }
+
+  function bootI18nV156() {
+    injectLangSwitcherV156();
+    window.setAlRaqiLanguageV156(currentLangV156, false);
+    startObserverV156();
+    // Auto Geo-IP / VPN check when user hasn't manually overridden language
+    try {
+      if (localStorage.getItem('ALRAQI_LANG_MANUAL_V1') !== '1') {
+        fetch('https://ipapi.co/country/', { cache: 'no-store' })
+          .then(function(r) { return r.ok ? r.text() : ''; })
+          .then(function(cc) {
+            cc = String(cc || '').trim();
+            if (cc.length === 2) {
+              var gLang = mapCountryV156(cc);
+              if (gLang !== currentLangV156) window.setAlRaqiLanguageV156(gLang, false);
+            }
+          }).catch(function() {});
+      }
+    } catch (e) {}
+  }
+
+  window.addEventListener('message', function(ev) {
+    if (ev && ev.data && ev.data.type === 'ALRAQI_SET_LANG' && ev.data.lang) {
+      try { if (localStorage.getItem('ALRAQI_LANG_MANUAL_V1') === '1') return; } catch (e) {}
+      window.setAlRaqiLanguageV156(ev.data.lang, false);
+    }
+  });
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bootI18nV156);
+  else bootI18nV156();
+})();
+
+</script>
+</body>
+</html>

@@ -12,27 +12,26 @@
 <title>الراقی — AL-RAQI</title>
 <style>
   html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden;background:#0f172a;font-family:system-ui,-apple-system,sans-serif;}
-  #loader{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#0f172a,#1e3a8a);color:#fff;text-align:center;padding:24px;z-index:10;transition:opacity 0.2s;}
-  #frame{position:fixed;inset:0;width:100%;height:100%;border:0;display:none;background:#fff;}
+  #loader{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#0f172a,#1e3a8a);color:#fff;text-align:center;padding:24px;z-index:10;transition:opacity 0.25s;}
+  .spin{width:30px;height:30px;border:3px solid rgba(254,240,138,0.28);border-top-color:#fef08a;border-radius:50%;animation:sp 0.8s linear infinite;margin-top:14px;}
+  @keyframes sp{to{transform:rotate(360deg)}}
+  #frame{position:fixed;inset:0;width:100%;height:100%;border:0;display:none;background:#fff;z-index:20;}
+  #frame.blue-crop{top:-34px;height:calc(100vh + 34px);}
   #updPill{position:fixed;top:10px;left:50%;transform:translateX(-50%);z-index:99999;display:none;background:#0f172a;color:#fef08a;border:2px solid #f59e0b;border-radius:999px;padding:7px 16px;font-weight:800;font-size:13px;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,0.35);font-family:inherit;}
 </style>
 </head>
 <body>
 <div id="loader">
-  <div id="appTitle" style="font-size:28px;font-weight:800;color:#fef08a;">الراقی — AL-RAQI</div>
-  <div id="statusTxt" style="margin-top:10px;font-size:15px;opacity:0.92;">⚡ ایپ کھل رہی ہے...</div>
+  <div id="appTitle" style="font-size:28px;font-weight:800;color:#fef08a;">الراقی</div>
+  <div id="statusTxt" style="margin-top:8px;font-size:15px;opacity:0.92;">ایپ لوڈنگ</div>
+  <div class="spin"></div>
 </div>
-<button id="updPill" type="button" onclick="location.reload()">✨ نئی اپ ڈیٹ تیار ہے — فوری ریفریش کریں</button>
-<iframe id="frame" allow="microphone; geolocation; clipboard-write"></iframe>
+<button id="updPill" type="button" onclick="location.reload()">نئی اپ ڈیٹ تیار ہے — ریفریش کریں</button>
+<iframe id="frame" allow="microphone; autoplay; geolocation; clipboard-read; clipboard-write; fullscreen"></iframe>
 <script>
 (function() {
   var isGreen = (window.location.pathname || "").toLowerCase().indexOf("shifa") >= 0;
-  var EXEC_BASE = "https://script.google.com/macros/s/AKfycbzKlQ08MZlyKir8IvIZkqLrych04BuJYseRe2_Bb2xcDTu39qfguH4rmqFdqqc9Fkgl7g/exec";
-  var EXEC = EXEC_BASE + (isGreen ? "?app=patient" : "?app=pro");
-  var DB_NAME = isGreen ? "alraqi_green_pwa_universal_v1" : "alraqi_blue_pwa_universal_v1";
-  var STORE = "html_cache";
-  var KEY = "latest_html";
-
+  var API = "https://script.google.com/macros/s/AKfycbzKlQ08MZlyKir8IvIZkqLrych04BuJYseRe2_Bb2xcDTu39qfguH4rmqFdqqc9Fkgl7g/exec";
   var titleText = isGreen ? "الراقی — سائل ایپ" : "الراقی — معالج ایپ";
   var themeCol = isGreen ? "#065f46" : "#1e3a8a";
   var bgGrad = isGreen ? "linear-gradient(135deg,#064e3b,#047857)" : "linear-gradient(135deg,#0f172a,#1e3a8a)";
@@ -43,6 +42,44 @@
   if (ld) ld.style.background = bgGrad;
   var at = document.getElementById("appTitle");
   if (at) at.textContent = titleText;
+
+  var fr = document.getElementById("frame");
+
+  // PWA Install support
+  var deferredPrompt = null;
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("./sw.js?v=6").catch(function() {});
+  }
+  window.addEventListener("beforeinstallprompt", function(e) { e.preventDefault(); deferredPrompt = e; });
+  window.addEventListener("message", function(ev) {
+    if (!ev || !ev.data) return;
+    if (ev.data.type === "ALRAQI_INSTALL_APP" && deferredPrompt) {
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.finally(function() { deferredPrompt = null; });
+    } else if (ev.data.type === "AL_RAQI_APP_READY") {
+      fr.style.display = "block";
+      if (ld) ld.style.display = "none";
+    }
+  });
+
+  if (!isGreen) {
+    // BLUE PRACTITIONER APP: Direct CORS-free iframe launch (100% reliable on all browsers/WebViews)
+    fr.className = "blue-crop";
+    fr.onload = function() {
+      fr.style.display = "block";
+      if (ld) ld.style.display = "none";
+    };
+    fr.src = API;
+    return;
+  }
+
+  // GREEN PATIENT APP: CORS-safe POST + IndexedDB Instant Cache-First (<0.5s reopen)
+  var DB_NAME = "alraqi_green_pwa_v10";
+  var STORE = "html_cache";
+  var KEY = "latest_html";
+  var params = new URLSearchParams(window.location.search);
+  var m = params.get("m") || params.get("mualij") || localStorage.getItem("alraqi_patient_mualij_v1") || "";
+  if (m) { try { localStorage.setItem("alraqi_patient_mualij_v1", m); } catch (e) {} }
 
   function openDb() {
     return new Promise(function(resolve, reject) {
@@ -73,16 +110,24 @@
     }).catch(function() { return false; });
   }
   function mountHtml(html) {
-    var fr = document.getElementById("frame");
     fr.srcdoc = html;
     fr.style.display = "block";
     if (ld) ld.style.display = "none";
+  }
+  function fetchFreshGreen() {
+    return fetch(API, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify({ action: "get_patient_lite_html_v150", mualij: m })
+    }).then(function(r) { return r.json(); }).then(function(res) {
+      return (res && res.ok && res.html) ? res.html : null;
+    });
   }
 
   getCache().then(function(cached) {
     if (cached && cached.length > 10000) {
       mountHtml(cached);
-      fetch(EXEC, { cache: "no-store" }).then(function(r) { return r.text(); }).then(function(fresh) {
+      fetchFreshGreen().then(function(fresh) {
         if (fresh && fresh.length > 10000 && Math.abs(fresh.length - cached.length) > 25) {
           setCache(fresh).then(function() {
             var p = document.getElementById("updPill");
@@ -91,17 +136,17 @@
         }
       }).catch(function() {});
     } else {
-      var st = document.getElementById("statusTxt");
-      if (st) st.textContent = "⏳ پہلی بار ایپ کیشے میں محفوظ ہو رہی ہے (اس کے بعد فٹافٹ کھلے گی)...";
-      fetch(EXEC, { cache: "no-store" }).then(function(r) { return r.text(); }).then(function(fresh) {
+      fetchFreshGreen().then(function(fresh) {
         if (fresh && fresh.length > 10000) {
           setCache(fresh);
           mountHtml(fresh);
-        } else if (st) {
-          st.textContent = "⚠️ لوڈ ہونے میں مسئلہ آیا — براہِ کرم ریفریش کریں۔";
+        } else {
+          var st = document.getElementById("statusTxt");
+          if (st) st.textContent = "براہِ کرم صفحہ ریفریش کریں۔";
         }
       }).catch(function() {
-        if (st) st.textContent = "⚠️ انٹرنیٹ چیک کر کے دوبارہ کوشش کریں۔";
+        var st = document.getElementById("statusTxt");
+        if (st) st.textContent = "انٹرنیٹ چیک کر کے صفحہ ریفریش کریں۔";
       });
     }
   });

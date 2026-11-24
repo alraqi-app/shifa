@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5" />
+<meta id="metaThemeColor" name="theme-color" content="#1e3a8a" />
+<meta property="og:title" content="الراقی — AL-RAQI" />
+<meta property="og:description" content="الراقی روحانی علاج، تشخیص، خواب کی تعبیر اور جامع ورد و تسبیح کاؤنٹر" />
+<meta property="og:image" content="./og-banner.jpg" />
+<link id="dynManifest" rel="manifest" href="./manifest-ur.json?v=7" />
+<link rel="icon" href="./icon-192.png?v=7" />
+<link rel="apple-touch-icon" href="./icon-192.png?v=7" />
+<title>الراقی</title>
+<style>
+  html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden;background:#0f172a;font-family:system-ui,-apple-system,sans-serif;}
+  #loader{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#0f172a,#1e3a8a);color:#fff;text-align:center;padding:24px;z-index:10;}
+  .spin{width:30px;height:30px;border:3px solid rgba(254,240,138,0.28);border-top-color:#fef08a;border-radius:50%;animation:sp 0.8s linear infinite;margin-top:14px;}
+  @keyframes sp{to{transform:rotate(360deg)}}
+  #frame{position:fixed;inset:0;width:100%;height:100%;border:0;display:none;background:#fff;z-index:20;}
+  #frame.blue-crop{top:-34px;height:calc(100vh + 34px);}
+  #waTipBar{position:fixed;top:0;left:0;right:0;z-index:99998;display:none;background:#0f172a;color:#fef08a;border-bottom:2px solid #f59e0b;padding:8px 12px;font-size:13px;font-weight:700;align-items:center;justify-content:space-between;gap:8px;}
+  #installFloatBar{position:fixed;top:10px;left:12px;z-index:99997;display:none;background:linear-gradient(135deg,#facc15,#d97706);color:#0f172a;border:2px solid #fef08a;border-radius:999px;padding:7px 14px;font-weight:800;font-size:13px;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,0.35);font-family:inherit;}
+  #updPill{position:fixed;top:10px;left:50%;transform:translateX(-50%);z-index:99999;display:none;background:#0f172a;color:#fef08a;border:2px solid #f59e0b;border-radius:999px;padding:7px 16px;font-weight:800;font-size:13px;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,0.35);font-family:inherit;}
+</style>
+</head>
+<body>
+<div id="waTipBar">
+  <span>📲 ایپ انسٹال کرنے کے لیے اوپر تین نقطے (⋮) دبا کر Open in Chrome منتخب کریں</span>
+  <button type="button" onclick="document.getElementById('waTipBar').style.display='none'" style="background:transparent;color:#fff;border:1px solid #94a3b8;border-radius:6px;padding:2px 7px;cursor:pointer;">✕</button>
+</div>
+<button id="installFloatBar" type="button" onclick="window._triggerPwaInstallV12()">📲 ایپ انسٹال کریں</button>
+<button id="updPill" type="button" onclick="location.reload()">نئی اپ ڈیٹ تیار ہے — ریفریش کریں</button>
+<div id="loader">
+  <div id="appTitle" style="font-size:28px;font-weight:800;color:#fef08a;">الراقی</div>
+  <div id="statusTxt" style="margin-top:8px;font-size:15px;opacity:0.92;">ایپ لوڈنگ</div>
+  <div class="spin"></div>
+</div>
+<iframe id="frame" allow="microphone; autoplay; geolocation; clipboard-read; clipboard-write; fullscreen"></iframe>
+<script>
+(function() {
+  var isGreen = (window.location.pathname || "").toLowerCase().indexOf("shifa") >= 0;
+  var API = "https://script.google.com/macros/s/AKfycbzKlQ08MZlyKir8IvIZkqLrych04BuJYseRe2_Bb2xcDTu39qfguH4rmqFdqqc9Fkgl7g/exec";
+  var titleText = isGreen ? "الراقی — سائل ایپ" : "الراقی — معالج ایپ";
+  var themeCol = isGreen ? "#065f46" : "#1e3a8a";
+  var bgGrad = isGreen ? "linear-gradient(135deg,#064e3b,#047857)" : "linear-gradient(135deg,#0f172a,#1e3a8a)";
+  document.title = titleText;
+  var mt = document.getElementById("metaThemeColor"); if (mt) mt.setAttribute("content", themeCol);
+  var ld = document.getElementById("loader"); if (ld) ld.style.background = bgGrad;
+  var at = document.getElementById("appTitle"); if (at) at.textContent = titleText;
+
+  var fr = document.getElementById("frame");
+  var instBtn = document.getElementById("installFloatBar");
+  var isStandalone = window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
+
+  // Detect WhatsApp / Facebook / Instagram in-app browser
+  var ua = navigator.userAgent || "";
+  if (!isStandalone && /WhatsApp|FBAN|FBAV|Instagram/i.test(ua)) {
+    var waBar = document.getElementById("waTipBar");
+    if (waBar) waBar.style.display = "flex";
+  }
+
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function() {
+      navigator.serviceWorker.register("./sw.js?v=7").then(function(r) { try { r.update(); } catch (e) {} }).catch(function() {});
+    });
+  }
+
+  var deferredPrompt = null;
+  window.addEventListener("beforeinstallprompt", function(e) {
+    e.preventDefault();
+    deferredPrompt = e;
+    if (!isStandalone && instBtn) instBtn.style.display = "inline-block";
+  });
+  window.addEventListener("appinstalled", function() {
+    deferredPrompt = null;
+    if (instBtn) instBtn.style.display = "none";
+  });
+
+  window._triggerPwaInstallV12 = function() {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.finally(function() {
+        deferredPrompt = null;
+        if (instBtn) instBtn.style.display = "none";
+      });
+      return;
+    }
+    var isIOS = /iPad|iPhone|iPod/.test(ua);
+    alert(isIOS
+      ? "آئی فون میں انسٹال کرنے کے لیے نیچے Share بٹن دبا کر Add to Home Screen منتخب کریں۔"
+      : "انسٹال کرنے کے لیے براؤزر کے اوپر تین نقطے (⋮) دبا کر Install App / Add to Home Screen منتخب کریں۔");
+  };
+
+  window.addEventListener("message", function(ev) {
+    if (!ev || !ev.data) return;
+    if (ev.data.type === "ALRAQI_INSTALL_APP") window._triggerPwaInstallV12();
+    else if (ev.data.type === "AL_RAQI_APP_READY") {
+      fr.style.display = "block";
+      if (ld) ld.style.display = "none";
+    }
+  });
+
+  // IndexedDB Instant Cache-First for BOTH Blue & Green Apps (with fail-safe iframe fallback for Blue)
+  var DB_NAME = isGreen ? "alraqi_green_pwa_v12" : "alraqi_blue_pwa_v12";
+  var STORE = "html_cache";
+  var KEY = "latest_html";
+  var params = new URLSearchParams(window.location.search);
+  var m = params.get("m") || params.get("mualij") || localStorage.getItem("alraqi_patient_mualij_v1") || "";
+  if (m) { try { localStorage.setItem("alraqi_patient_mualij_v1", m); } catch (e) {} }
+
+  function openDb() {
+    return new Promise(function(resolve, reject) {
+      var req = indexedDB.open(DB_NAME, 1);
+      req.onupgradeneeded = function(e) { e.target.result.createObjectStore(STORE); };
+      req.onsuccess = function(e) { resolve(e.target.result); };
+      req.onerror = reject;
+    });
+  }
+  function getCache() {
+    return openDb().then(function(db) {
+      return new Promise(function(resolve) {
+        var tx = db.transaction(STORE, "readonly");
+        var req = tx.objectStore(STORE).get(KEY);
+        req.onsuccess = function() { resolve(req.result || null); };
+        req.onerror = function() { resolve(null); };
+      });
+    }).catch(function() { return null; });
+  }
+  function setCache(html) {
+    return openDb().then(function(db) {
+      return new Promise(function(resolve) {
+        var tx = db.transaction(STORE, "readwrite");
+        tx.objectStore(STORE).put(html, KEY);
+        tx.oncomplete = function() { resolve(true); };
+        tx.onerror = function() { resolve(false); };
+      });
+    }).catch(function() { return false; });
+  }
+  function mountHtml(html) {
+    fr.srcdoc = html;
+    fr.style.display = "block";
+    if (ld) ld.style.display = "none";
+  }
+  function fetchFreshApp() {
+    var bodyObj = isGreen
+      ? { action: "get_patient_lite_html_v150", mualij: m }
+      : { action: "get_pro_app_html_v43" };
+    return fetch(API, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(bodyObj)
+    }).then(function(r) { return r.json(); }).then(function(res) {
+      return (res && res.ok && res.html) ? res.html : null;
+    });
+  }
+  function fallbackBlueIframe() {
+    fr.className = "blue-crop";
+    fr.onload = function() { fr.style.display = "block"; if (ld) ld.style.display = "none"; };
+    fr.src = API;
+  }
+
+  getCache().then(function(cached) {
+    if (cached && cached.length > 10000) {
+      mountHtml(cached);
+      fetchFreshApp().then(function(fresh) {
+        if (fresh && fresh.length > 10000 && Math.abs(fresh.length - cached.length) > 25) {
+          setCache(fresh).then(function() {
+            var p = document.getElementById("updPill");
+            if (p) p.style.display = "block";
+          });
+        }
+      }).catch(function() {});
+    } else {
+      fetchFreshApp().then(function(fresh) {
+        if (fresh && fresh.length > 10000) {
+          setCache(fresh);
+          mountHtml(fresh);
+        } else if (!isGreen) {
+          fallbackBlueIframe();
+        } else {
+          var st = document.getElementById("statusTxt");
+          if (st) st.textContent = "براہِ کرم صفحہ ریفریش کریں۔";
+        }
+      }).catch(function() {
+        if (!isGreen) {
+          fallbackBlueIframe();
+        } else {
+          var st = document.getElementById("statusTxt");
+          if (st) st.textContent = "انٹرنیٹ چیک کر کے صفحہ ریفریش کریں۔";
+        }
+      });
+    }
+  });
+})();
+</script>
+</body>
+</html>
